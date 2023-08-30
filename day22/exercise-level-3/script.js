@@ -83,8 +83,9 @@ const DA = new Course('Data Analysis', '30 Days Of Data Analysis', hcModule, 'in
 const ML = new Course('Machine Learning', '30 Days OfMAchine Learning', mlModule, 'incoming')
 const courses = [python, javaScript, htmlCss, React, Native, DA, ML]
 const cc = document.createElement('div')
+document.body.appendChild(cc)
 cc.setAttribute('class', 'container')
-console.log(cc)
+console.log(courses)
 let courseDiv;
 
 console.log(python, javaScript)
@@ -94,7 +95,10 @@ for (let i = 1; i <= 8; i++) {
     courseDiv = document.createElement('div')
     courseDiv.setAttribute('class', 'course')
     courseDiv.classList.add(courseClasses[i - 1])
-
+    
+    cc.appendChild(courseDiv)
     
 
 }
+
+console.log(cc)

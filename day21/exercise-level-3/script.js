@@ -13,17 +13,18 @@ let sec = date.getSeconds()
 console.log(min,':', sec)
 
 const months = [
-    'January', 'February',
+    'January', 'February', 'February', 'March', 'April', "May", 'June', 
+    "July", "August", "September", "October", 'November', 'December'
 ]
 
 function time () {
-    month < 10 ? month = `0${month}` : month
+    months < 10 ? months = `0${months}` : months
     day < 10 ? day = `0${day}` : day
     hr < 10 ? hr = `0${hr}` : hr
     min < 10 ? min = `0${min}` : min
     sec < 10 ? sec = `0${sec}` : sec
 
-    return `${day}:${month}:${year} ${hr}:${min}:${sec}`
+    return `${day}:${months}:${year} ${hr}:${min}:${sec}`
 }
 
 console.log(time())

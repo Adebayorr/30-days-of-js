@@ -81,7 +81,7 @@ const React = new Course('React', '30 Days OfReact', jsxModule, 'incoming')
 const Native = new Course('React Native', '30 Days Of React Native', nativeModule, 'incoming')
 const DA = new Course('Data Analysis', '30 Days Of Data Analysis', hcModule, 'incoming')
 const ML = new Course('Machine Learning', '30 Days OfMAchine Learning', mlModule, 'incoming')
-const courses = [python, javaScript, htmlCss, React, Native, DA, ML]
+const courses = [python, javaScript, htmlCss, React, Native, DA, ML] //arrays of courses's object
 const cc = document.createElement('div')
 document.body.appendChild(cc)
 cc.setAttribute('class', 'container')
@@ -91,14 +91,30 @@ let courseDiv;
 console.log(python, javaScript)
 
 const courseClasses = ['py', 'js', 'hc', 'jsx', 'native', 'full', 'da', 'ml']
-for (let i = 1; i <= 8; i++) {
+for (let i = 0; i < 7; i++) {
     courseDiv = document.createElement('div')
     courseDiv.setAttribute('class', 'course')
     courseDiv.classList.add(courseClasses[i - 1])
-    
+    for (let j = 0; j <= 2; j++) {
+        let innerCD;
+        if (j === 1) {
+            innerCD = document.createElement('details')
+            let summary = document.createElement('summary')
+            innerCD.appendChild(summary)
+            let moduleList = document.createElement('li')
+            for (let k = 0; k < courses[i].module.length; k++) {
+                innerCD.appendChild(moduleList)
+                console.log(innerCD)
+                innerCD.textContent = courses[i].module[k]
+
+            }
+        }
+        innerCD = document.createElement('div')
+        courseDiv.appendChild(innerCD)
+    }
     cc.appendChild(courseDiv)
     
 
 }
 
-console.log(cc)
+console.log(cc.innerHTML)

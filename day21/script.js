@@ -47,3 +47,4 @@ level3.textContent = 'Exercise: Level Three'
 level3.setAttribute('href', './exercise-level-3/index.html')
 
 document.body.appendChild(level3)
+console.log(document.body)

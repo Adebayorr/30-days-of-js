@@ -1,7 +1,7 @@
-// const h2 = document.createElement('h2')
-// h2.innerText = 'Regular Expression In JavaScript'
-// document.body.appendChild(h2)
-
+const h2 = document.createElement('h2')
+h2.innerText = 'Regular Expression In JavaScript'
+document.body.appendChild(h2)
+console.log(document)
 const regEx = new RegExp('live', 'gi')
 const claim = 'I live and breath JavaScript as I do the air'
 console.log(regEx.test(claim))
@@ -30,17 +30,55 @@ changeText
 const earningStatement = 'He earns 4000 euro from salary per month, 10000 euro annual bonus, 5500 euro online courses per month.'
 const earnings = /\d{3,5}/g
 const earningsArr = earningStatement.match(earnings)
-const annualIncome = () => {
+let sorted;
+function sortNumArr (arr) {
+  sorted =  arr.filter( (a, b) => a > b)
+  return sorted
+}
+
+console.log(sortNumArr(earningsArr))
+const annualIncome = (arr) => {
+    sortNumArr(arr)
     let sum = 0
-    for (let i = 0; i < earningsArr.length; i++) {
+    for (let i = 0; i < sorted.length; i++) {
         if (i === 0) {
-            sum = Number(earningsArr[i]) * 12
+            sum = Number(sorted[i]) * 12
         } else {
-            sum += Number(earningsArr[i])
+            sum += Number(sorted[i])
         }
 
     }
     return sum
 }
-console.log(annualIncome())
+console.log(annualIncome(earningsArr))
 console.log(earningsArr)
+
+
+const points = ['-1', '2', '-4', '-3', '-1', '0', '4', '8']
+// console.log(sortNumArr(points))
+const furthestDistance = () => {
+    let sorted = points.sort((a,b) => a - b)
+    sorted
+    let result = Number(sorted[0]) - Number(sorted[points.length - 1])
+    return Math.abs(result)
+    
+}
+
+console.log(furthestDistance(points))
+
+
+
+function isValidVar (varName) {
+    const jsVarP1 = /^\d/
+    const jsVarP3 = /[a-z]|[A-Z]|[0-9$_]]/
+
+    const pattern1 = jsVarP1.test(varName)
+    const pattern2 = jsVarP3.test(varName)
+    pattern1
+    if (pattern1 || pattern2) {
+        return ('A valid variable name')
+    } else {
+       return (console.error()) 
+    }
+}
+console.log(isValidVar('1first_name'))

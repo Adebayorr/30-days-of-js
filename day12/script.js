@@ -68,17 +68,33 @@ console.log(furthestDistance(points))
 
 
 
-function isValidVar (varName) {
-    const jsVarP1 = /^\d/
-    const jsVarP3 = /[a-z]|[A-Z]|[0-9$_]]/
 
-    const pattern1 = jsVarP1.test(varName)
-    const pattern2 = jsVarP3.test(varName)
-    pattern1
-    if (pattern1 || pattern2) {
-        return ('A valid variable name')
+
+const statement2 = '9first_name'
+// const pattern2 = check2.test(statement2)
+// console.log(pattern2)
+
+function isValidVar (statement) {
+    const check2 = /^[^\d][\w]{1,}$/
+    if (check2.test(statement) === true) {
+        return ('A valid JavaScript variable')
     } else {
-       return (console.error()) 
+        throw new SyntaxError()
     }
+} 
+
+console.log(isValidVar('firstname'))
+
+paragraph = `
+    I love teaching. If you do not love teaching what else can you love. 
+    I love Python if you do not love something which can give you all the 
+    capabilities to develop an application what else can you love.`
+
+function  tenMostFrequentWords (text) {
+    const pattern = /^[\w]{1,}\s$/g
+    return text.match(pattern)
 }
-console.log(isValidVar('1first_name'))
+
+
+console.log(tenMostFrequentWords(paragraph))
+

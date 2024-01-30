@@ -296,58 +296,114 @@ let sumOdd = 0
 // } while (counter < countries.length)
 // countriesWithFiveLetters
 
-let longestWord = webTechs[0]
-longestWord
-let count = 0
+// let longestWord = webTechs[0]
+// longestWord
+// let count = 0
 
-while(count < webTechs.length) {
-    webTechs[count].length > longestWord.length ? longestWord = webTechs[count] : longestWord
-    count++
-}
+// while(count < webTechs.length) {
+//     webTechs[count].length > longestWord.length ? longestWord = webTechs[count] : longestWord
+//     count++
+// }
 
-console.log(longestWord)
+// console.log(longestWord)
 
-let techPairs = []
+// let techPairs = []
 
-for (let i = 0; i < webTechs.length; i++) {
-    let techPair = []
-    techPair[0] = webTechs[i]
-    techPair[1] = webTechs[i].length
-    techPairs.push(techPair)
-}
-techPairs
-
-
-let mern = `${mernStack[0][0]}${mernStack[1][0]}${mernStack[2][0]}${mernStack[3][0]}`
-mern
-
-let mern2  = ""
-
-for (let i = 0; i < mernStack.length; i++) {
-    mern2 += mernStack[i][0]
-}
-mern2
+// for (let i = 0; i < webTechs.length; i++) {
+//     let techPair = []
+//     techPair[0] = webTechs[i]
+//     techPair[1] = webTechs[i].length
+//     techPairs.push(techPair)
+// }
+// techPairs
 
 
-for (let i = 0; i < webTechs.length; i++) {
-    console.log(webTechs[i])
-}
+// let mern = `${mernStack[0][0]}${mernStack[1][0]}${mernStack[2][0]}${mernStack[3][0]}`
+// mern
 
-let fruits = ['banana', 'orange', 'mango', 'lemon']
-let reverseFruit = []
-for (let i = 0; i < fruits.length; i++) {
-    reverseFruit.push(fruits[3 - i])
-}
-reverseFruit
+// let mern2  = ""
 
-const fullStack = [
-    ['HTML', 'CSS', 'JS', 'React'],
-    ['Node', 'Express', 'MongoDB']
-]
+// for (let i = 0; i < mernStack.length; i++) {
+//     mern2 += mernStack[i][0]
+// }
+// mern2
 
-for (let i = 0; i < fullStack.length; i++) {
-    for (let j = 0; j < fullStack[i].length; j++) {
-        console.log(fullStack[i][j])
+
+// for (let i = 0; i < webTechs.length; i++) {
+//     console.log(webTechs[i])
+// }
+
+// let fruits = ['banana', 'orange', 'mango', 'lemon']
+// let reverseFruit = []
+// for (let i = 0; i < fruits.length; i++) {
+//     reverseFruit.push(fruits[3 - i])
+// }
+// reverseFruit
+
+// const fullStack = [
+//     ['HTML', 'CSS', 'JS', 'React'],
+//     ['Node', 'Express', 'MongoDB']
+// ]
+
+// for (let i = 0; i < fullStack.length; i++) {
+//     for (let j = 0; j < fullStack[i].length; j++) {
+//         console.log(fullStack[i][j])
+//     }
+// }
+
+
+//Level 3
+const countriesCopy = countries.slice(0)
+countriesCopy
+
+const sortedCountries = countries.slice(0).sort()
+sortedCountries
+
+const sortedTechs = webTechs.sort()
+const sortedMern = mernStack.sort()
+
+let countrieswithLand = []
+for (let i = 0; i < countries.length; i++) {
+    if (countries[i].includes("land")) {
+        countrieswithLand.push(countries[i])
     }
 }
+countrieswithLand
+
+let maxCharsCountry = countries[0]
+
+let count = 0
+do {
+    if (countries[count].length > maxCharsCountry.length) {
+        maxCharsCountry = countries[count]
+    }
+    count++
+} while (count < countries.length)
+maxCharsCountry
+
+let countryWithFourChars = []
+
+for (let i = 0; i < countries.length; i++) {
+    if (countries[i].length === 4) {
+        countryWithFourChars.push(countries[i])
+    }
+}
+let countryAboveTwoWords = []
+
+let counter = 0
+
+while (counter < countries.length) {
+    if (countries[counter].length > 2) countryAboveTwoWords.push(countries[counter])
+    counter++
+}
+countryAboveTwoWords
+
+let reversedCaptitalizedCountries = []
+
+for (let i = 0; i < countries.length; i++) {
+    reversedCaptitalizedCountries.push(countries.reverse()[i].toUpperCase())
+}
+
+reversedCaptitalizedCountries
+countries
 }}

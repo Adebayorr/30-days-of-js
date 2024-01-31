@@ -68,11 +68,50 @@ function convertCelsiusToFahrenheit (celsius) {
 console.log(convertCelsiusToFahrenheit(67))
 
 function checkWeight (weight, height) {
-    let bmi = weight / (height * height)
-    console.log(bmi)
+    let bmi = weight / (height * height) * 10000
+
+    let result 
+    if (bmi < 18.5) {
+        result = `Result: ${bmi.toFixed(1)} \nYou are Underweight`
+    } else if (bmi === 18.5 || bmi <= 24.9){
+        result = `Result: ${bmi.toFixed(1)} \n You have a normal weight`
+    } else if (bmi === 25 || bmi <= 29.9) {
+        result = `Result: ${bmi.toFixed(1)} \n You are overweight`
+    } else {
+        result = `Result: ${bmi.toFixed(1)} \n You are obese`
+    }
+    return result
 }
 
 console.log(checkWeight(70, 172))
+
+const checkSeason =  function(month) {
+    let summer = ["june", "july", "august"]
+    let autumn = ["september", "october", "november"]
+    let spring = ["march", "april", "may"]
+    let winter = ["december", "january", "february"]
+
+    if (summer.includes(month.toLowerCase())) {
+        return `The season is summer`
+    } else if (autumn.includes(month.toLowerCase())) {
+        return `The season is autumn`
+    } else if (spring.includes(month.toLowerCase())) {
+        return `The season is spring`
+    } else if (winter.includes(month.toLowerCase())) {
+        return `The season is winter`
+    } else {
+        return  `Not a valid month`
+    }
+}
+
+console.log(checkSeason("March"))
+
+function findMax (num1, num2, num3) {
+
+    return Math.max(num1, num2, num3)
+}
+console.log(findMax(2, 9, 4))
+
 
 }}
 

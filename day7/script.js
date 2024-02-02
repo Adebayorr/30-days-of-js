@@ -201,5 +201,108 @@ function removeItem (index) {
     items
 } 
 removeItem(1)
+
+function sumOfNumbers (num) {
+    let i = 0
+    let sum = 0
+    while (i <= num) {
+        sum += i
+        i++
+    }
+    return sum
+}
+
+console.log(sumOfNumbers(100))
+
+function sumOfOdds (num) {
+    let sum = 0
+    let i = 0
+    while (i <= num) {
+        if (i % 2 === 1) {
+            sum += i
+            
+        }
+        i++
+    }
+    return sum
+}
+
+console.log(sumOfOdds(100))
+
+function sumOfEvens (num) {
+    let sum = 0
+    let i = 0
+
+    while (i <= num) {
+        if (i % 2 === 0) {
+            sum += i
+        }
+        i++
+    }
+    return sum
+}
+console.log(sumOfEvens(100))
+
+function evensAndOdds (num) {
+    let evenCounts = 0
+    let oddCounts = 0
+    let i = 0
+    while (i <= num) {
+        if (i % 2 === 0) {
+            evenCounts++
+        } else {
+            oddCounts++
+        }
+        i++
+    }
+    return `evensAndOdds(${num}) \n The numbers of odds are ${oddCounts} \n
+        The number of evens are ${evenCounts}`
+}
+
+console.log(evensAndOdds(100))
+
+function addAll () {
+    let sum = 0
+    for (let i = 0; i < arguments.length; i++) {
+        sum += arguments[i]
+    }
+    return sum
+}
+console.log(addAll(1, 2, 3, 4))
+
+const  randomUserIp = () => {
+    return `${Math.round(Math.random() * 255)}.
+    ${Math.round(Math.random() * 255)}.
+    ${Math.round(Math.random() * 255)}.
+    ${Math.round(Math.random() * 255)}.
+    ${Math.round(Math.random() * 254)}`
+}
+
+console.log(randomUserIp())
+
+// const randomMacAddress = (function () {
+//     let hexChars = "0123456789abcdef"
+//     let macAddress = []
+//     let count = 0
+//     while (macAddress.length < 17) {
+//        if (macAddress.length % 2 === 0)
+//     }
+   
+//     return macAddress
+// })()
+// console.log(randomMacAddress)
+
+function randomMacAddress() {
+    let mac = [];
+    for (let i = 0; i < 6; i++) {
+        mac.push(Math.floor(Math.random() * 256).toString(16).padStart(2, '0'));
+    }
+    mac[0] = (parseInt(mac[0], 16) & 0xfc | 0x02).toString(16).padStart(2, '0');
+    return mac.join(':');
+}
+
+// Example usage
+console.log(randomMacAddress());
 }}
+
 

@@ -303,6 +303,67 @@ function randomMacAddress() {
 
 // Example usage
 console.log(randomMacAddress());
+
+//Level 3
+    
+const userIdGeneratedByUser = () => {
+    let chars = "1ab2c3d4e5f6g7h8i9j0kl1mt34uvw567xnop777qrsyz"
+    let id = ""
+    const ids = []
+    let numbersOfId = +(prompt("Input number of IDs to generate"))
+    let lengthOfId = +(prompt("Input length of IDs to generate"))
+    console.log(numbersOfId, lengthOfId)
+    let count = 0
+    while (count < numbersOfId) {
+        let i = 0 
+        id = ""
+        while (i < lengthOfId) {
+            
+            id += chars[Math.round(Math.random() * 42)]
+            i++
+        }
+        console.log(id)
+        ids.push(id)
+        count++
+    }
+    console.log(ids)
+    return ids
+
+}
+
+// console.log(userIdGeneratedByUser())
+
+function rgbColorGenerator () {
+    let r = Math.floor(Math.random() * 256)
+    let g = Math.floor(Math.random() * 256)
+    let b = Math.floor(Math.random() * 256)
+    const rgb = `rgb(${r},${g},${b})`
+    return rgb
+}
+
+console.log(rgbColorGenerator())
+
+const arrayOfHexaColors  = () => {
+    let numberOfHexcodes = 6 // +prompt("number of Hexcodes to generate")
+    let hexCodes = []
+    let hexCode = ""
+    let i = 0
+    while(i < numberOfHexcodes) {
+        let j = 0
+        hexCode = "#"
+        while(j < 3) {
+        hexCode += Math.floor(Math.random() * 256).toString(16).length < 2 ?
+            `0${Math.floor(Math.random() * 256).toString(16)}` :
+            Math.floor(Math.random() * 256).toString(16)
+        j++
+        }
+        i++
+        hexCodes.push(hexCode)
+    }
+    return hexCodes
+    
+}
+console.log(arrayOfHexaColors())
 }}
 
 

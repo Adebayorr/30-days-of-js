@@ -351,10 +351,8 @@ const arrayOfHexaColors  = () => {
     while(i < numberOfHexcodes) {
         let j = 0
         hexCode = "#"
-        while(j < 3) {
-        hexCode += Math.floor(Math.random() * 256).toString(16).length < 2 ?
-            `0${Math.floor(Math.random() * 256).toString(16)}` :
-            Math.floor(Math.random() * 256).toString(16)
+        while(hexCode.length < 6) {
+        hexCode += Math.floor(Math.random() * 256).toString(16).padStart(2, 0)
         j++
         }
         i++
@@ -364,6 +362,77 @@ const arrayOfHexaColors  = () => {
     
 }
 console.log(arrayOfHexaColors())
+
+function arrayOfRgbColors  () {
+    let numberOfRGBs = 6 // +prompt("Enter a number")
+    const arrayOfRGBs = []
+    
+    let i = 0
+    while (i < numberOfRGBs) {
+        let red = Math.floor(Math.random() * 256)
+        let green = Math.floor(Math.random() * 256)
+        let blue = Math.floor(Math.random() * 256) 
+        let rgb = `rgb(${red},${green},${blue})`
+        arrayOfRGBs.push(rgb)
+        i++
+    }
+    return arrayOfRGBs
+}
+
+console.log(arrayOfRgbColors())
+
+
+function convertHexaToRgb  (hexa = "#0eaa3e") {
+    let r = parseInt(`${hexa[1]}${hexa[2]}`, 16)
+    let g = parseInt(`${hexa[3]}${hexa[4]}`, 16)
+    let b = parseInt(`${hexa[5]}${hexa[6]}`, 16)
+    r
+    const rgb = `rgb(${r},${g},${b})`
+    return rgb
+}
+
+console.log(convertHexaToRgb())
+
+const convertRgbToHexa  = (rgb) => {
+    rgb = rgb.replace("rgb", "")
+    rgb = rgb.replace("(", "")
+    rgb = rgb.replace(")", "")
+    
+    let [r,g,b] = rgb.split(",")
+    console.log(typeof r)
+    console.log(typeof r)
+    let hexa = "#"
+    hexa   += parseInt(r).toString(16).padStart(2, 0) + parseInt(g).toString(16).padStart(2, "0") + parseInt(b).toString(16).padStart(2, "0")
+    return hexa
+}
+
+let rgb = "rgb(14,170,62)"
+console.log(convertRgbToHexa(rgb))
+
+// console.log(5.toString(16))
+
+const generateColors  = function (colorType = "rgb", number = 4) {
+    if (colorType.toLowerCase() === "rgb") {
+        let rgbColors = []
+        for (let i = 0; i < number; i++) {
+            let r = Math.round(Math.random() * 255)
+            let g = Math.round(Math.random() * 255)
+            let b = Math.round(Math.random() * 255)
+            const rgb = `rgb(${r},${g},${b})`
+            rgbColors.push(rgb)
+        }
+        return rgbColors
+    } else if (colorType.toLowerCase() === "hex") {
+        let hexCodes = []
+        for (let j = 0; j < number; j++) {
+            
+        }
+            
+        }
+    }
+}
+
+console.log(generateColors("rgb", 5))
 }}
 
 

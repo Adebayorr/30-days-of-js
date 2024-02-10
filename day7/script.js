@@ -425,14 +425,48 @@ const generateColors  = function (colorType = "rgb", number = 4) {
     } else if (colorType.toLowerCase() === "hex") {
         let hexCodes = []
         for (let j = 0; j < number; j++) {
-            
+
+            let hexcode = ""
+            let r = Math.floor(Math.random() * 256).toString(16).padStart(2, 0)
+            let g = Math.floor(Math.random() * 256).toString(16).padStart(2, 0)
+            let b = Math.floor(Math.random() * 256).toString(16).padStart(2, 0)
+            hexcode = `#${r}${g}${b}`
+            hexCodes.push(hexcode)
         }
-            
-        }
+            return hexCodes
     }
 }
+console.log(generateColors("hex", 5))
 
-console.log(generateColors("rgb", 5))
+
+const isEmpty = (arg) => {
+    if (arg == false) {
+        return false
+    } else {
+        return true
+    }
+}
+console.log(isEmpty("mirror"))
+
+function sum (arg1, arg2) {
+    return arg1 + arg2
+}
+console.log(sum(4, 7))
+
+const sumOfArrayItems = function (arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === "number") {
+            continue
+        } else {
+            return "Array containsa a string element"
+        }
+    }
+    let sum = arr.reduce((acc, currentVal) => acc += currentVal, 0)
+    return sum
+}
+sumOfArrayItems([1,2,3,4,9,8,5,7])
+
+
 }}
 
 

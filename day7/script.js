@@ -458,15 +458,107 @@ const sumOfArrayItems = function (arr) {
         if (typeof arr[i] === "number") {
             continue
         } else {
-            return "Array containsa a string element"
+            return "Array contains a string element"
         }
     }
-    let sum = arr.reduce((acc, currentVal) => acc += currentVal, 0)
+    let sum = arr.reduce((acc, currentVal) => acc + currentVal, 0)
     return sum
 }
-sumOfArrayItems([1,2,3,4,9,8,5,7])
+console.log(sumOfArrayItems([1,2,3,4,9,8,5,7]))
+
+const average = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] !== "string") {
+            
+        } else {
+            return "Array contains a string element"
+        }
+    }
+    let sum = arr.reduce((acc, cv) => acc + cv, 0) 
+    let average = sum / arr.length
+    return average
+}
+
+console.log(average([1,2,3,4,5,6]))
+
+const modifyArray  = function (arr) {
+    if (arr[4] == false) {
+        return "Item not found"
+    } else {
+        arr[4] = arr[4].toUpperCase()
+        console.log(arr[4].toUpperCase())
+        return arr
+    }
+}
+
+console.log(modifyArray(['Avocado', 'Tomato', 'Potato','Mango', 'Lemon', 'Carrot']))
+
+const uniqueItems = (arr) => {
+    let checked = [arr[0]]
+    for (let i = 1; i < arr.length; i++) {
+        if (checked.includes(arr[i])) {
+            return "Items of the array are not unique"
+        } else {
+            checked.push(arr[i])
+        }
+    }
+    console.log(checked)
+    return "All items of the array are unique"
+}
+
+console.log(uniqueItems([1,2,4,6,8,5,]))
+
+const CheckDataType = (arr) => {
+    let status = ""
+    for (let i = 1; i < arr.length; i++) {
+        if (typeof arr[i] === typeof arr[i -1]) {
+            status = `All items are ${typeof arr[i]} data type`
+            console.log(status)
+        } else {
+            status = "This array contains multiple data type"
+        }
+    }
+    return status
+}
+
+console.log(CheckDataType([1,2,3,4,5]))
+
+const isValidVar = function (varName) {
+    let valid  = true
+    let chars = "abcdefghijklmnopqrstuvwxyz$_0123456789"
+    for (let i = 0; i < varName.length; i++) {
+        if (!chars.includes(varName[i].toLowerCase())) {
+            valid = false
+            break
+        } 
+    }
+    return valid
+}
+
+console.log(isValidVar("bar_Cod"))
 
 
+
+function sevenRandomNumbers () {
+    let result = []
+    for (let i = 0; result.length < 7; i++) {
+        let random = Math.round(Math.random() *9)
+        if (!result.includes(random))
+            result.push(random)
+    }
+    return result
+}
+
+console.log(sevenRandomNumbers())
+
+function reverseCountries (countries) {
+    let reversed = countries.splice(0)
+    reversed = reversed.reverse()
+    console.log(reversed)
+    return reversed
+}
+
+console.log(reverseCountries(["Nigeria", "Eritrea", "Gabon", "Mozambique", "Malawi"]))
 }}
 
 

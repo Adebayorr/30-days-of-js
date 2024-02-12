@@ -90,8 +90,125 @@ const users = {
     }
   }
 
-  /**
-   * Find the person who has many skills in the users object.
-   * Count logged in users, count users having greater than equal to 50 points from the following object. 
-   */
-  
+/**
+ * Find the person who has many skills in the users object.
+ * Count logged in users, count users having greater than equal to 50 points from the following object. 
+ */
+
+//1
+let userMap =  Object.entries(users)
+let mostSkills 
+for (let i = 1; i < userMap.length; i++) {
+  if (userMap[i][1].skills.length > userMap[i - 1][1].skills.length) {
+    mostSkills = userMap[i]
+  }
+}
+
+console.log(mostSkills)
+
+//2 
+let loggedIn = 0
+for (let i = 0; i < userMap.length; i++) {
+  console.log(userMap)
+  if (userMap[i][1].isLoggedIn === true) {
+    loggedIn++
+  }
+}
+console.log(loggedIn)
+
+//3. Find people who are MERN stack developer from the users object
+let i = 0
+let mernStackUsersCount = 0
+let mernStackUsers = []
+do {
+  if (userMap[i][1].skills.includes("MongoDB") &&
+  userMap[i][1].skills.includes("MongoDB") &&
+  userMap[i][1].skills.includes("MongoDB") &&
+  userMap[i][1].skills.includes("MongoDB")
+  ) {
+    mernStackUsersCount++
+    mernStackUsers.push(userMap[i])
+  }
+  console.log(userMap[i])
+  i++
+} while(i < userMap.length)
+let output = `${mernStackUsers[0][0]} and ${mernStackUsers[1][0]} are mernStack developers`
+console.log(output)
+
+const newUsers = Object.assign({}, users)
+const bayor = {
+  email: "bayor@gmail.com",
+  skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind", "Sass"],
+  age: 19,
+  isLoggedIn : true,
+  points: 35
+}
+newUsers.bayor = bayor
+console.log(newUsers)
+
+let keysOfUsers = Object.keys(users)
+let valuesOfUsers = Object.values(users)
+console.log(keysOfUsers)
+console.log(valuesOfUsers)
+
+
+
+//7. Use the countries object to print a country name, capital, populations and languages.
+const countries = {
+  Austria : {
+    "name": "Austria",
+    "capital": "Vienna",
+    "languages": [
+        "German"
+    ],
+    "population": 8917205,
+    "flag": "https://flagcdn.com/at.svg",
+    "region": "Europe",
+    "area": 83871
+},
+Bahamas : {
+  "name": "Bahamas",
+  "capital": "Nassau",
+  "languages": [
+      "English"
+  ],
+  "population": 393248,
+  "flag": "https://flagcdn.com/bs.svg",
+  "region": "Americas",
+  "area": 13943
+},
+"Cayman Islands": {
+  "name": "Cayman Islands",
+  "capital": "George Town",
+  "languages": [
+      "English"
+  ],
+  "population": 65720,
+  "flag": "https://flagcdn.com/ky.svg",
+  "region": "Americas",
+  "area": 264
+},
+Ecuador: {
+  "name": "Ecuador",
+  "capital": "Quito",
+  "languages": [
+      "Spanish"
+  ],
+  "population": 17643060,
+  "flag": "https://flagcdn.com/ec.svg",
+  "region": "Americas",
+  "area": 276841
+},
+}
+
+let countriesCopy = Object.entries(countries)
+
+let y = 0
+
+while (y < countriesCopy.length) {
+  let details = `${countriesCopy[y][0]}\'s, capital is ${countriesCopy[y][1].capital}. It has a population of
+   ${countriesCopy[y][1].population} people. ${countriesCopy[y][1].languages } is the official language`
+  console.log(details)
+  y++
+}
+console.log(countriesCopy)

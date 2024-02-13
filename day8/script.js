@@ -212,3 +212,43 @@ while (y < countriesCopy.length) {
   y++
 }
 console.log(countriesCopy)
+
+
+//Level 3
+
+/**
+ * Create an object literal called personAccount. It has firstName, lastName, incomes, 
+ * expenses properties and it has totalIncome, totalExpense, accountInfo,addIncome, addExpense 
+ * and accountBalance methods. Incomes is a set of incomes and its description and expenses is 
+ * a set of incomes and its description.
+ */
+
+const personAccount = {
+  firstName: "AbdulFatai",
+  lastName: "AbdulRaheem",
+  incomes: [
+    {fedSalary: 33000},
+    {stateSalary: 15000}, 
+    {Misc: 20000}
+  ],
+  expenses: [
+    {Data: 10000}, 
+    {others: 15000}
+  ],
+  totalExpense: function () {
+    let total 
+    for (let i = 0; i < this.expenses.length; i++) {
+      total += this.expenses[i]
+    }
+    return total
+  },
+  totalIncome: function () {
+    let total 
+    let i = 0
+    while (i < this.incomes.length) {
+      total += this.incomes[i]
+    }
+    return total
+  }
+
+}

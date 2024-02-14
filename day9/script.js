@@ -1,4 +1,4 @@
-const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand']
+const countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand']
 const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const products = [
@@ -47,5 +47,43 @@ let sixCharsOrMoreCountries = countries.filter(country => country.length >= 6)
 let E_countries = countries.filter(country => country.startsWith('E'))
 let productsWithVal = products.filter(product => product.price != "")
 
+function getStringLists  (arr) {
+    let strings = arr.filter(a => typeof a === "string")
+    return strings
+}
 
-console.log(productsWithVal)
+let sumOfNumbers = numbers.reduce((acc, curr) => acc + curr, 0)
+
+function countriesStatement (countries) {
+    let cwl = countries.slice(0, countries.length -1)
+    let cwls = cwl.reduce((acc, curr) => acc + curr + ", ", "")
+    let statement = `${cwls}and ${countries[countries.length - 1]} are north European countries`
+    return statement
+}
+
+
+
+console.log(countriesStatement(countries))
+
+//19.
+//the some method is used to check if items of an array share some similar charcteristics. It returns true if the items share the stated
+//argument otherwise false
+
+//The every method works similarly like the some method. The major different is the every method only returns true if all the elements
+//of the array meets the specified condition
+
+console.log(names.some(name => name.length > 7))
+console.log(countries.every(country => country.includes("land")))
+
+//22
+
+//The find method checks if an element of an array satisfies a condition and returns the first element that satisfy the condition
+//The findIndex method finds the index of the first element that meet a specified condition and return the index
+
+let countryWithSixLetters = countries.find((country) => country.length == 6)
+let iocwsl = countries.findIndex(country => country.length == 6)
+let findNorway = countries.findIndex(country => country == "Norway")
+let findRussia = countries.findIndex(country => country === "Russia")
+
+console.log(findRussia)
+

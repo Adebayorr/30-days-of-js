@@ -1,4 +1,4 @@
-const countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand']
+// const countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand']
 const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const products = [
@@ -54,16 +54,16 @@ function getStringLists  (arr) {
 
 let sumOfNumbers = numbers.reduce((acc, curr) => acc + curr, 0)
 
-function countriesStatement (countries) {
-    let cwl = countries.slice(0, countries.length -1)
-    let cwls = cwl.reduce((acc, curr) => acc + curr + ", ", "")
-    let statement = `${cwls}and ${countries[countries.length - 1]} are north European countries`
-    return statement
-}
+// function countriesStatement (countries) {
+//     let cwl = countries.slice(0, countries.length -1)
+//     let cwls = cwl.reduce((acc, curr) => acc + curr + ", ", "")
+//     let statement = `${cwls}and ${countries[countries.length - 1]} are north European countries`
+//     return statement
+// }
 
 
 
-console.log(countriesStatement(countries))
+// console.log(countriesStatement(countries))
 
 //19.
 //the some method is used to check if items of an array share some similar charcteristics. It returns true if the items share the stated
@@ -87,3 +87,62 @@ let findRussia = countries.findIndex(country => country === "Russia")
 
 console.log(findRussia)
 
+
+//Level 2
+
+const totalPrice = products.filter(p => typeof p.price != "string").reduce((acc, curr) => acc + curr.price, 0)
+const sumTotal = products.reduce((acc, curr) => typeof curr.price === "string" ? acc + 0 : acc + curr.price, 0)
+console.log(sumTotal)
+
+
+const categorizeCountries  = () => {
+    const countryCategory = []
+
+    const withIA = countries.filter(c => c.includes("ia"))
+    const withLand = countries.filter(c => c.includes("land"))
+    const withStan = countries.filter(c => c.includes("stan"))
+    const withIsland = countries.filter(c => c.includes("Islands"))
+
+    countryCategory.push(withIA)
+    countryCategory.push(withLand)
+    countryCategory.push(withStan)
+    countryCategory.push(withIsland)
+
+    return countryCategory
+
+}
+
+function initialCounts () {
+    
+    return countries.reduce((letterCounts, country) => {
+        let firstLetter = country[0].toUpperCase()
+        letterCounts[firstLetter] = (letterCounts[firstLetter] || 0) + 1
+        return letterCounts
+    }, {})
+}
+console.log(initialCounts())
+
+const getFirstTenCountries = function () {
+    const firstTen = countries.filter((e, i) => i < 10)
+    return firstTen
+}
+
+const getLastTenCountries  = () => {
+    const lastTen = countries.filter((element, index) => {
+        if (index > countries.length - 11) {
+            return index
+        }
+    })
+    return lastTen
+}
+
+console.log(getFirstTenCountries())
+
+// const mostInitial = function () {
+//     return Object.entries(initialCounts).find((e)  => {
+//         let max = 0
+//         if (e.)
+//     })
+// }
+
+console.log(Object.entries(initialCounts()))

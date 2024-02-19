@@ -138,11 +138,34 @@ const getLastTenCountries  = () => {
 
 console.log(getFirstTenCountries())
 
-// const mostInitial = function () {
-//     return Object.entries(initialCounts).find((e)  => {
-//         let max = 0
-//         if (e.)
-//     })
-// }
+const getLetterCounts = (countries) => {
+    let letterCountsObject = countries.reduce((letterCounts, country) => {
+        let letter = country[0].toUpperCase()
+        letterCounts[letter] = (letterCounts[letter] || 0) + 1
+        return letterCounts
+    }, {})
 
-console.log(Object.entries(initialCounts()))
+    let letterCount = Object.entries(letterCountsObject)
+    let maxLetterCount = 0
+    let mostFrequentLetter
+
+    for (let i  = 0; i < letterCount.length; i++) {
+        if (letterCount[i][1] > maxLetterCount) {
+            maxLetterCount = letterCount[i][1]
+            mostFrequentLetter = letterCount[i][0]
+            console.log(i)
+        }
+    }
+    console.log("The letter used most frequently as the initial for country names is:", mostFrequentLetter, "with", maxLetterCount, "occurrences.");
+}
+
+getLetterCounts(countries)
+
+
+function sortCountry (countries, sortParam) {
+    if (sortParam.toLowerCase() === "population") {
+        let sortByPop = countries.sort((a, b) {
+            if
+        })
+    }
+} 

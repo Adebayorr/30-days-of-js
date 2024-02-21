@@ -16,7 +16,7 @@ const countries_data = [
 			"name": "Åland Islands",
 			"capital": "Mariehamn",
 			"languages": [
-					"Swedish"
+					"Swedish"   
 			],
 			"population": 28875,
 			"flag": "https://flagcdn.com/ax.svg",

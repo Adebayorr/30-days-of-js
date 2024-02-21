@@ -162,10 +162,122 @@ const getLetterCounts = (countries) => {
 getLetterCounts(countries)
 
 
-function sortCountry (countries, sortParam) {
+
+function sortCountry (sortParam = "population") {
+    let countries = countries_data
     if (sortParam.toLowerCase() === "population") {
-        let sortByPop = countries.sort((a, b) {
-            if
+        let sortByPop = countries.sort((a, b) => {
+            if (a.population < b.population) return 1
+            if (a.population > b.population) return -1
+            return 0
         })
+        return sortByPop
+    } else if (sortParam.toLowerCase() === "capital") {
+        let sortByCapital = countries.sort((a, b)  => {
+            if (a.capital > b.capital) return 1
+            if (a.capital < b.capital) return -1
+            return 0
+        })
+        return sortByCapital
+    } else if (sortParam.toLowerCase() === "name") {
+        let sortByName = countries.sort((a, b) => {
+            if (a.name > b.name) return 1
+            if (a.name < b.name) return -1
+            return 0
+        })
+        return sortByName
+    } else {
+        return `Enter a valid filter option such as name or population`
     }
 } 
+
+console.log(sortCountry("names"))
+
+
+const mostSpokenLanguage = (number) => {
+    let countries = countries_data
+    let msl = countries.reduce((languageCount, country) => {
+        let languages = country.languages
+        // console.log(languages)
+        for (let i = 0; i < languages.length; i++) {
+            let language = languages[i] 
+            languageCount[language] = (languageCount[language] || 0) + 1
+            return languageCount
+        }
+
+        
+}, {})
+let sortedLanguages = Object.entries(msl).sort()
+let mappedlanguageCounts = sortedLanguages.map(mappedlanguage => {
+    return {
+        "language": mappedlanguage[0],
+        count: mappedlanguage[1]
+    }
+}).splice(0, number) 
+    return msl
+} 
+console.log(mostSpokenLanguage(4)) 
+
+const mostPopulousCountry = (num) => {
+    let countries = countries_data
+    let sortedCountry = countries.sort((a, b) => b.population - a.population)
+
+    let topCountriesByPop = sortedCountry.splice(0, num).map(country => {
+        return {
+            "country" : country.name,
+            "population": country.population
+
+        }
+    })
+    return topCountriesByPop
+}
+
+console.log(mostPopulousCountry(10))
+
+let arr = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+const statistics =  {
+    data : arr,
+
+    count: function () {
+        return this.data.length
+    },
+
+    sum : function () {
+        return this.data.reduce((acc, curr) => acc + curr, 0)
+    },
+
+    min: function () {
+        return +this.data.sort((a, b) => a - b).splice(0, 1).join("")
+    },
+
+    max: function () {
+        return this.data.sort((a, b) => a - b).splice(this.data.length - 1)
+    },
+
+    range : function () {
+        return (
+            this.max() - this.min()
+        )
+    },
+
+    mean : function () {
+        return (
+            this.sum() / this.count()
+        )
+    },
+
+    median: function () {
+        let n = this.data.length
+        if (this.data.length % 2 === 1) {
+            return (n + 1) / 2
+        } else {
+            return (
+                ((n / 2) + ((n / 2) + 1)) / 2
+            )
+        }
+    }
+
+
+} 
+
+console.log(statistics.range())

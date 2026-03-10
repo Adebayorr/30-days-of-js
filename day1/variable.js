@@ -3,8 +3,7 @@
 
 /* comments can make code readable, 
 easy to reuse and informative */
-
-let word = "Model"
-let isAwake = true
-let unknown 
-let nullishValue = null
+let name = "Aries"
+let isYoung = true
+let relationship
+let addiction = null

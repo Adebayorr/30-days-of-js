@@ -22,16 +22,16 @@ let firstName = "Fatai"
 let lastName = "Raheem"
 let maritalStatus = "single"
 let country = "Nigeria"
-let _age = 65
+let _age = 35
 
-let _firstName = "AbdulQowiyy", _lastName = "Ajao", _maritalStatus = "single", _country = "Nigeria", _myAge = 32
+let _firstName = "AbdulQowiyy", _lastName = "Ajao", _maritalStatus = "single", _country = "Canada", _myAge = 32
 
 
-let myCurrentAge = 23
-let yourCurrentAge = 27
+let myAge = 23
+let yourAge = 27
 
-console.log("I am", myCurrentAge, "old")
-console.log("You are", yourCurrentAge, "old" )
+console.log("I am", myAge, "old")
+console.log("You are", yourAge, "old" )
 
 const longParagraph = "This is going to be an insanely long sentence to justify my example \
 of how you can breaking down long string varibles into multiple lines whether it starts with a \

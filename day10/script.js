@@ -260,6 +260,62 @@ console.log(differenceOfAB)
 
 // Level 3
 
+//1
+function languagesInCountriesObj (countriesData) {
+    const countriesLanguages = []
+    for (let country of countriesData) {
+        const languages = country.languages
+        if(languages.length >= 1) {
+            for (lang of languages) {
+            countriesLanguages.push(lang)
+            }
+        }
+    }
+
+    const LanguagesSet = new Set(countriesLanguages)
+
+    return `There are ${LanguagesSet.size} languages in Countries object`
+}
+
+
+// 2
+function mostSpokenLanguages (countries, range = 2) {
+
+    const countriesLanguages = []
+for (const country of countries) {
+    const languages = country.languages
+    
+    if (languages.length > 0) {
+        for(let lang of languages) {
+            countriesLanguages.push(lang)
+        }
+    }
+}
+
+const countriesLangSet = new Set(countriesLanguages)
+console.log(countriesLangSet)
+
+const languagesCount = []
+for (lang of countriesLangSet) {
+    const count = countriesLanguages.filter(l =>
+        l === lang
+    )
+    languagesCount.push({language: lang, frequency: count.length})
+
+}
+
+languagesCount.sort((a, b) => {
+    if (a.frequency > b.frequency) return -1
+})
+
+
+const topFreqLangs = languagesCount.filter((lang, i) => i < range)
+
+return topFreqLangs
+}
+
+console.log(mostSpokenLanguages(countries_data, 10))
+
 
 
 

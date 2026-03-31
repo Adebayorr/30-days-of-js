@@ -91,45 +91,45 @@
 // let rate = prompt("Enter rate per hour")
 // console.log(parseInt(hrs) * +rate)
 
-let myName = "Abdul-Fatai"
-myName.length > 7 ? console.log("Name has more than seven letters"):
-console.log("Name is short")
+// let myName = "Abdul-Fatai"
+// myName.length > 7 ? console.log("Name has more than seven letters"):
+// console.log("Name is short")
 
-let firstName = "Abdul-Fatai"
-let lastName = "Abdul-Raheem"
+// let firstName = "Abdul-Fatai"
+// let lastName = "Abdul-Raheem"
 
-firstName > lastName? 
-console.log(`Your first name, ${firstName} is longer than your last name, ${lastName}`):
-console.log(`Your first name, ${firstName} is not longer than your last name, ${lastName}`)
+// firstName > lastName? 
+// console.log(`Your first name, ${firstName} is longer than your last name, ${lastName}`):
+// console.log(`Your first name, ${firstName} is not longer than your last name, ${lastName}`)
 
-let myAge  = 23
-let yourAge = 27
+// let myAge  = 23
+// let yourAge = 27
 
-myAge > yourAge ? console.log(`I am ${myAge - yourAge} years older than you`):
-console.log(`You are ${yourAge - myAge} older than me`)
+// myAge > yourAge ? console.log(`I am ${myAge - yourAge} years older than you`):
+// console.log(`You are ${yourAge - myAge} older than me`)
 
 // let age = prompt("Enter your Age")
 // console.log(age)
 // +age >= 18 ? console.log(`Your are ${age}. You're old enough to drive` ):
 // console.log(`You are ${age}. You will be allowed to drive after ${18 - age} years`)
 
-// let age = prompt("Enter the number of years you've lived?")
-// alert(`You've lived ${+age * 31536000} seconds`)
+let age = prompt("Enter the number of years you've lived?")
+alert(`You've lived ${+age * 31536000} seconds`)
 
-// let now = new Date()
-// let year = now.getFullYear()
-// let month = now.getMonth()
-// let date = now.getDate()
-// let day = now.getDay()
-// let hour = now.getHours()
-// let minutes = now.getMinutes()
+let now = new Date()
+let year = now.getFullYear()
+let month = now.getMonth()
+let date = now.getDate()
+let day = now.getDay()
+let hour = now.getHours()
+let minutes = now.getMinutes()
 
-// console.log(`${year}-${month}-${date} ${hour}:${minutes}`)
-// console.log(`${date}-${month}-${year} ${hour}:${minutes}`)
-// console.log(`${date}/${month}/${date} ${hour}:${minutes}`)
+console.log(`${year}-${month}-${date} ${hour}:${minutes}`)
+console.log(`${date}-${month}-${year} ${hour}:${minutes}`)
+console.log(`${date}/${month}/${date} ${hour}:${minutes}`)
 
-// let formattedHour = hour < 10 ? `0${hour}` : hour
-// let formattedMinutes = minutes < 10 ? `0${minutes}` : minutes
+let formattedHour = hour < 10 ? `0${hour}` : hour
+let formattedMinutes = minutes < 10 ? `0${minutes}` : minutes
 
-// let time = `${year}-${month}-${date} ${hour}:${minutes}`
-// console.log(time)
+let time = `${year}-${month}-${date} ${hour}:${minutes}`
+console.log(time)

@@ -2981,7 +2981,6 @@ const countries_data = [
 	}
 ]
 
-countries_data.forEach((country) => {
-  const {name, capital, population, languages} = country
+countries_data.forEach(({name, capital, population, languages}) => {
   console.log(name, capital, population, languages)
 })

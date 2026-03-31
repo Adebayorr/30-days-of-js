@@ -97,4 +97,3 @@ function  tenMostFrequentWords (text) {
 
 
 console.log(tenMostFrequentWords(paragraph))
-

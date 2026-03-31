@@ -229,3 +229,257 @@ function mostFrequentLetter (data) {
 }
 
 mostFrequentLetter(countries)
+
+// Level 3
+
+const countries_data = [
+	{
+			"name": "Afghanistan",
+			"capital": "Kabul",
+			"languages": [
+					"Pashto",
+					"Uzbek",
+					"Turkmen"
+			],
+			"population": 40218234,
+			"flag": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg",
+			"region": "Asia",
+			"area": 652230
+	},
+	{
+			"name": "Åland Islands",
+			"capital": "Mariehamn",
+			"languages": [
+					"Swedish"
+			],
+			"population": 28875,
+			"flag": "https://flagcdn.com/ax.svg",
+			"region": "Europe",
+			"area": 1580
+	},
+	{
+			"name": "Albania",
+			"capital": "Tirana",
+			"languages": [
+					"Albanian"
+			],
+			"population": 2837743,
+			"flag": "https://flagcdn.com/al.svg",
+			"region": "Europe",
+			"area": 28748
+	},
+	{
+			"name": "Algeria",
+			"capital": "Algiers",
+			"languages": [
+					"Arabic"
+			],
+			"population": 43851043,
+			"flag": "https://flagcdn.com/dz.svg",
+			"region": "Africa",
+			"area": 2381741
+	},
+	{
+			"name": "American Samoa",
+			"capital": "Pago Pago",
+			"languages": [
+					"English",
+					"Samoan"
+			],
+			"population": 55197,
+			"flag": "https://flagcdn.com/as.svg",
+			"region": "Oceania",
+			"area": 199
+	},
+	{
+			"name": "Andorra",
+			"capital": "Andorra la Vella",
+			"languages": [
+					"Catalan"
+			],
+			"population": 77265,
+			"flag": "https://flagcdn.com/ad.svg",
+			"region": "Europe",
+			"area": 468
+	},
+	{
+			"name": "Angola",
+			"capital": "Luanda",
+			"languages": [
+					"Portuguese"
+			],
+			"population": 32866268,
+			"flag": "https://flagcdn.com/ao.svg",
+			"region": "Africa",
+			"area": 1246700
+	},
+	{
+			"name": "Anguilla",
+			"capital": "The Valley",
+			"languages": [
+					"English"
+			],
+			"population": 13452,
+			"flag": "https://flagcdn.com/ai.svg",
+			"region": "Americas",
+			"area": 91
+	},
+	{
+			"name": "Antarctica",
+            "capital": 'Antartica',
+			"languages": [
+					"English",
+					"Russian"
+			],
+			"population": 1000,
+			"flag": "https://flagcdn.com/aq.svg",
+			"region": "Polar",
+			"area": 14000000
+	},
+	{
+			"name": "Antigua and Barbuda",
+			"capital": "Saint John's",
+			"languages": [
+					"English"
+			],
+			"population": 97928,
+			"flag": "https://flagcdn.com/ag.svg",
+			"region": "Americas",
+			"area": 442
+	},
+	{
+			"name": "Argentina",
+			"capital": "Buenos Aires",
+			"languages": [
+					"Spanish",
+					"Guaraní"
+			],
+			"population": 45376763,
+			"flag": "https://flagcdn.com/ar.svg",
+			"region": "Americas",
+			"area": 2780400
+	},
+	{
+			"name": "Armenia",
+			"capital": "Yerevan",
+			"languages": [
+					"Armenian"
+			],
+			"population": 2963234,
+			"flag": "https://flagcdn.com/am.svg",
+			"region": "Asia",
+			"area": 29743
+	},
+	{
+			"name": "Aruba",
+			"capital": "Oranjestad",
+			"languages": [
+					"Dutch",
+					"(Eastern) Punjabi"
+			],
+			"population": 106766,
+			"flag": "https://flagcdn.com/aw.svg",
+			"region": "Americas",
+			"area": 180
+	},
+	{
+			"name": "Australia",
+			"capital": "Canberra",
+			"languages": [
+					"English"
+			],
+			"population": 25687041,
+			"flag": "https://flagcdn.com/au.svg",
+			"region": "Oceania",
+			"area": 7692024
+	},
+	{
+			"name": "Austria",
+			"capital": "Vienna",
+			"languages": [
+					"German"
+			],
+			"population": 8917205,
+			"flag": "https://flagcdn.com/at.svg",
+			"region": "Europe",
+			"area": 83871
+	},
+	{
+			"name": "Azerbaijan",
+			"capital": "Baku",
+			"languages": [
+					"Azerbaijani"
+			],
+			"population": 10110116,
+			"flag": "https://flagcdn.com/az.svg",
+			"region": "Asia",
+			"area": 86600
+	},
+	{
+			"name": "Bahamas",
+			"capital": "Nassau",
+			"languages": [
+					"English"
+			],
+			"population": 393248,
+			"flag": "https://flagcdn.com/bs.svg",
+			"region": "Americas",
+			"area": 13943
+	},
+	{
+			"name": "Bahrain",
+			"capital": "Manama",
+			"languages": [
+					"Arabic"
+			],
+			"population": 1701583,
+			"flag": "https://flagcdn.com/bh.svg",
+			"region": "Asia",
+			"area": 765
+	},
+
+]
+
+// 1
+ const filterCountry = (countries, sortBy) => {
+    console.log(countries)
+
+    if (sortBy.toLowerCase() === 'population') {
+        countries.sort((a, b) => {
+            return b[sortBy] - a[sortBy] 
+        }) 
+    } else {
+        countries.sort((a, b) => {
+        return a[sortBy].localeCompare(b[sortBy])  
+    })
+    }
+    return countries
+ }
+
+
+console.log(filterCountry(countries_data, 'capital'))
+
+
+//2
+
+let UniqueLanguages = []
+
+for (let country of countries_data) {
+    for (let lang of country.languages) {
+        if (!UniqueLanguages.includes(lang)) {
+            UniqueLanguages.push(lang)
+        }
+    }
+}
+let languageMap = []
+for (language of UniqueLanguages) {
+    countries_data.map((country) => {
+        let languagefreq = country.languages.filter(lang => {
+            return lang === language
+        
+        })
+        console.log(languagefreq.length)
+    })
+}
+
+console.log(UniqueLanguages)

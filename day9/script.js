@@ -197,7 +197,7 @@ console.log(getFirstTen(countries))
 
 // 6
 function getLastTen (data) {
-    let result = data.filter((e, i, arr) => i >= arr.length - 10)
+    let result = data.slice(0, 10)
     return result
 }
 

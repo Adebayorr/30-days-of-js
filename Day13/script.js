@@ -275,7 +275,6 @@ do {
     i++
 } while (i < countries.length)
 console.timeEnd('Do While Loop')
-console.log(doWhileConcat)
 
 console.time('ForEach Loop')
 let forEachConcat = ''

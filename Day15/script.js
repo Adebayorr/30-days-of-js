@@ -115,14 +115,21 @@ class Stastistics {
         if (sorted.length % 2 === 0) return (sorted[sorted.length / 2] + sorted[(sorted.length / 2) -1]) / 2
     }
 
-    // mode () {
-    //     const uniqueAge = new Set(this.data)
-    //     console.log(uniqueAge)
-    //     const mostFreq = []
-    //     this.data.forEach(num => {
-    //         let count = a === 
-    //     })
-    // }
+    mode () {
+        const mostFrequent = {}
+        this.data.forEach((e) => {
+            if (mostFrequent[e]) mostFrequent[e] += 1
+            if (!mostFrequent[e]) mostFrequent[e] = 1
+
+            // mostFrequent[e] = (mostFrequent[e] || 0) + 1
+        })
+      const topNums =  Object.entries(mostFrequent).sort((a,b) => b[1] - a[1]).filter((e, i, arr) => e[1] === arr[0][1])
+
+    //   const formatted = function () {
+    //     let modes = []
+    //   }
+        return `Modes:`+ topNums
+    }
 }
 
 const statistics = new Stastistics(age)

@@ -119,7 +119,7 @@ let paragraph = `I  love teaching. If you do not love teaching what else can you
 const tenMostFrequentWords = function (paragraph, range = 10) {
 
     let lowerCaseP = paragraph.toLowerCase().replace(/\./g, '')
-    const wordsInP = lowerCaseP.split(" ").filter(e => e !== '')
+     const wordsInP = lowerCaseP.split(" ").filter(e => e !== '')
     const uniqueWordsInP = new Set(wordsInP)
     const uniqueWordsObj = []
     for(uniqueword of uniqueWordsInP) {
@@ -134,26 +134,6 @@ const tenMostFrequentWords = function (paragraph, range = 10) {
 }
 
 console.log(tenMostFrequentWords(paragraph))
-
-// function tenMostFrequentWords (input, range = 10) {
-
-//     const wordsArr = input.split(' ')
-//     console.log(wordsArr)
-//     const uniqueWordArr = new Set(wordsArr)
-//     console.log(uniqueWordArr)
-
-//     const uniqueWordCount = []
-//     for (let unique of uniqueWordArr) {
-
-//         const filtered = wordsArr.filter((w) => w === unique)
-//         uniqueWordCount.push({word: unique, count: filtered.length})
-//     }
-
-//     return uniqueWordCount.sort((a, b) => b.count - a.count).filter((word, i) => i < range)
-// }
-
-// console.log(tenMostFrequentWords(paragraph))
-
 
 
 

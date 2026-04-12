@@ -1,50 +1,53 @@
-// Create an index.html file and put four p elements as above: Get the first paragraph by using document.querySelector(tagname) and tag name
-// Get each of the the paragraph using document.querySelector('#id') and by their id
-// Get all the p as nodeList using document.querySelectorAll(tagname) and by their tag name
-// Loop through the nodeList and get the text content of each paragraph
-// Set a text content to paragraph the fourth paragraph,Fourth Paragraph
-// Set id and class attribute for all the paragraphs using different attribute setting methods
+//  Level 1
 
-const firstP = document.querySelector('p')
-const p1 = document.getElementById('first-p')
-const p2 = document.getElementById('second-p')
-const p3 = document.getElementById('third-p')
-const p4 = document.getElementById('last-p')
-const allP = document.querySelectorAll('p')
+// 1
+const firstParagraph = document.querySelector('p')
 
-allP.forEach(p => console.log(p.textContent))
+//  2
+const firstP = document.querySelector('#first-p')
+const secondP = document.querySelector('#second-p')
+const thirdP = document.querySelector('#third-p')
+const lastP = document.querySelector('#last-p')
 
-p4.innerText = "Fourth Paragraph"
+// 3
+const paragraphs = document.querySelectorAll('p')
 
-const ids = ['first-paragraph', 'second-paragraph', 'third-paragraph', 'last-paragraph']
-const classes = ['first-pg', 'second-pg', 'third-pg', 'last-pg']
+// 4
+paragraphs.forEach((p) => console.log(p))
 
-for (let i = 0; i < allP.length; i++) {
-    allP[i].className = classes[i]
-    allP[i].id = ids[i]
+// 5 
+paragraphs[3].textContent = "Oops! I'm the Fourth"
+
+// 6
+
+for (let i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].setAttribute('id', `paragraph${i}`)
+    paragraphs[i].className = 'paragraph'
 }
 
-console.log(allP)
 
+// Level 2
 
-// Change stye of each paragraph using JavaScript(eg. color, background, border, font-size, font-family)
-// Select all paragraphs and loop through each elements and give the first and third paragraph a color of green, and the second and the fourth paragraph a red color
-// Set text content, id and class to each paragraph
+// 1
+paragraphs[0].style.color = 'red'
+paragraphs[1].style.color = 'cyan'
+paragraphs[2].style.color = 'purple'
+paragraphs[3].style.color = 'skyblue'
 
-const colors = [ '#e73f7e', '#983ea4', '#8ab8ce', '#109872']
-
-for (let i = 0; i < allP.length; i++) {
-    allP[i].style.background = colors[i] 
-    allP[i].style.border = '2px solid red'
-    allP[i].style.fontSize = '35px'
-    allP[i].style.fontFamily = 'Roboto'
-    i%2 === 0 ? allP[i].style.color = 'red' : allP[i].style.color = 'green'
-
+// 2
+for (let i = 0; i < paragraphs.length; i++) {
+    if (i === 0 || i === 2) {
+        paragraphs[i].style.color = 'green'
+    } else {
+        paragraphs[i].style.color = 'red'
+    }
 }
 
-const level3 = document.createElement('a')
-level3.textContent = 'Exercise: Level Three'
-level3.setAttribute('href', './exercise-level-3/index.html')
+// 3
+for (let i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].textContent = `I am paragraph ${i}`
+    paragraphs[i].setAttribute('id', `paragraph-${i}`)
+    paragraphs[i].setAttribute('class', `p-${i}`)
+    console.log(paragraphs[i].innerHTML)
 
-document.body.appendChild(level3)
-console.log(document.body)
+}

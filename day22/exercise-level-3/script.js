@@ -54,8 +54,6 @@ function hexColor () {
     return hexCode
 }
 
-console.log(hexColor())
-
 const updateTimeAndColor = function () {
     setTime()
     displayTime.style.backgroundColor = hexColor()
@@ -91,7 +89,6 @@ headingSpan.textContent = asabenehChallenges2026.challengeYear
 headingOne.appendChild(headingSpan)
 headingSpan.style.fontSize = '3rem'
 
-console.log(headingSpan)
 // H2 Styling
 subtitle.textContent = `
     ${asabenehChallenges2026.challengeSubtitle}
@@ -99,8 +96,7 @@ subtitle.textContent = `
 
 subtitle.style.textDecoration = 'underline'
 subtitle.style.fontWeight = 'normal'
-console.log(`${asabenehChallenges2026.challengeTitle} in ${asabenehChallenges2026.challengeYear}`
-);
+
 
 
 // time element style
@@ -143,11 +139,12 @@ for (let i = 0; i < challengesArr.length; i++) {
     }
 
     summary.textContent = challengesArr[i].topics[0]
-    console.log(challengesArr)
     detailTitle.textContent = challengesArr[i].name
     detailTitle.style.fontWeight = 'normal'
     detailTitle.style.color = 'blue'
     detailTitle.style.textDecoration = 'underline'
+
+
     detailElement.appendChild(summary)
     detailWrapper.appendChild(detailTitle)
     detailWrapper.appendChild(detailElement)
@@ -160,11 +157,9 @@ for (let i = 0; i < challengesArr.length; i++) {
         list.style.listStyle = 'none'
         list.style.margin = '8px 0'
         detailElement.appendChild(list)
-        console.log(list)
     })
 
     challengesContainer.appendChild(detailWrapper)
-    console.log(i)
 
     // Detail Title Style
     detailTitle.style.width = '35%'
@@ -268,7 +263,6 @@ for (let i = 0; i < skills.length; i++) {
     skill.style.listStyle = 'none'
     skill.style.marginBottom = '6px'
     authorSkillsDiv.appendChild(skill)
-    console.log(skill)
 }
 
 const qualTh2 = document.createElement('h2')
@@ -287,7 +281,6 @@ for (let i = 0; i < qualifications.length; i++) {
     
     qual.style.listStyle = 'none'
     authorQualDiv.appendChild(qual)
-    console.log(qual)
 }
 
 

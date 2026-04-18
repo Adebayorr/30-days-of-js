@@ -284,6 +284,41 @@ for (let i = 0; i < qualifications.length; i++) {
 }
 
 
+// Keywords Div
+const keywords = asabenehChallenges2026.keywords
+const keywordsH2 = document.createElement('h2')
+const keywordWrapperDiv = document.createElement('div')
+keywordsH2.textContent = 'Keywords'
+keywordDiv.appendChild(keywordsH2)
+keywordDiv.style.width = '95%'
+keywordDiv.style.maxWidth = '1020px'
+keywordWrapperDiv.style.display = 'flex'
+keywordWrapperDiv.style.width = '100%'
+keywordWrapperDiv.style.flexWrap = 'wrap'
+keywordWrapperDiv.style.gap = '6px'
+keywordWrapperDiv.style.justifyContent = 'start'
+
+
+
+
+
+
+// keywordDiv.style.marginTop = '16px'
+
+keywords.forEach(keyword => {
+    let keywordsSpan = document.createElement('span')
+    keywordsSpan.textContent = `# ${keyword}`
+    keywordsSpan.style.padding = '8px 12px'
+    keywordsSpan.style.borderRadius = '20px'
+
+    keywordsSpan.style.backgroundColor = hexColor()
+
+
+    keywordWrapperDiv.appendChild(keywordsSpan)
+    
+})
+keywordDiv.appendChild(keywordWrapperDiv)
+
 
 
 document.body.appendChild(headingOne)
@@ -292,6 +327,7 @@ document.body.appendChild(displayTime)
 document.body.appendChild(challengesContainer)
 document.body.appendChild(authorDiv)
 document.body.appendChild(skillTitleDiv)
+document.body.appendChild(keywordDiv)
 
 
 

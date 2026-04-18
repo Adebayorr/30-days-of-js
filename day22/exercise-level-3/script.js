@@ -10,15 +10,15 @@ const headingOne = document.createElement('h1')
 const subtitle = document.createElement('h2')
 let displayTime = document.createElement('div')
 const challengesContainer = document.createElement('div')
-const firstNameElem = document.createElement('span')
-const lasstNameElem = document.createElement('span')
+const authorNameElem = document.createElement('h2')
+// const lastNameElem = document.createElement('span')
+const socialIcons = document.createElement('div')
 const authorDesc = document.createElement('p')
 const skillTitleDiv = document.createElement('div')
 const authorTitlesDiv = document.createElement('div')
 const authorSkillsDiv = document.createElement('div')
 const authorQualDiv = document.createElement('div')
-
-
+const keywordDiv = document.createElement('div')
 const authorDiv = document.createElement('div')
 let headingSpan = document.createElement('span')
 
@@ -173,8 +173,8 @@ for (let i = 0; i < challengesArr.length; i++) {
     // detailElement.style.width = '10%'
 
     // Summary Element Style
-    // summary.style.width = '25%'
     summary.style.textAlign = 'right'
+
     // Div Wrapper Styles
     detailWrapper.style.display = 'flex'
     detailWrapper.style.justifyContent = 'space-between'
@@ -187,10 +187,59 @@ for (let i = 0; i < challengesArr.length; i++) {
     
 }
 
+// Author Div Layout
+
+authorNameElem.textContent = asabenehChallenges2026.author.firstName + ' ' + asabenehChallenges2026.author.lastName
+authorNameElem.setAttribute('class', 'author-name')
+
+authorDesc.textContent = asabenehChallenges2026.author.bio
+authorDesc.style.fontSize = '1.2rem'
+authorDesc.style.textAlign = 'center'
+authorDesc.style.margin = '0 auto'
+authorDesc.style.width = '95%'
+authorDiv.style.fontSize = '28px'
+authorDiv.style.textAlign = 'center'
+authorDiv.style.marginTop = '32px'
+
+authorDiv.appendChild(authorNameElem)
+authorDiv.appendChild(socialIcons)
+authorDiv.appendChild(authorDesc)
+
+
+for (let i = 0; i < 3; i++) {
+    let socialLink = document.createElement('a')
+    let socialIcon = document.createElement('i')
+    let links = asabenehChallenges2026.author.socialLinks
+    socialIcon.style.fontSize = '2rem'
+    socialIcon.style.color = 'cyan'
+    const classNames = links[i].fontawesomeIcon.match(/fab fa-[a-z|-]+/g)[0].split(' ')
+    console.log(classNames)
+    socialIcon.classList.add(classNames[0])
+    socialIcon.classList.add(classNames[1])
+
+    socialLink.appendChild(socialIcon)
+    socialIcons.appendChild(socialLink)
+    socialIcons.style.margin = '0 auto'
+    socialIcons.style.display = 'flex'
+    socialIcons.style.justifyContent = 'center'
+    socialIcons.style.marginBottom = '60px'
+    socialIcons.style.gap = '12px'
+    socialIcon.style.fontSize = '48px'
+    socialIcon.style.color = '#0e0e0e'
+}
+
+
+// // skillTitleDiv Layout
+// authorTitlesDiv
+
 document.body.appendChild(headingOne)
 document.body.appendChild(subtitle)
 document.body.appendChild(displayTime)
 document.body.appendChild(challengesContainer)
+document.body.appendChild(authorDiv)
+document.body.appendChild(skillTitleDiv)
+
+
 
 setInterval(updateTimeAndColor, 1000)
 

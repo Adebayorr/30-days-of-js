@@ -200,6 +200,7 @@ authorDesc.style.width = '95%'
 authorDiv.style.fontSize = '28px'
 authorDiv.style.textAlign = 'center'
 authorDiv.style.marginTop = '32px'
+authorDiv.style.maxWidth = '1020px'
 
 authorDiv.appendChild(authorNameElem)
 authorDiv.appendChild(socialIcons)
@@ -213,7 +214,6 @@ for (let i = 0; i < 3; i++) {
     socialIcon.style.fontSize = '2rem'
     socialIcon.style.color = 'cyan'
     const classNames = links[i].fontawesomeIcon.match(/fab fa-[a-z|-]+/g)[0].split(' ')
-    console.log(classNames)
     socialIcon.classList.add(classNames[0])
     socialIcon.classList.add(classNames[1])
 
@@ -229,8 +229,69 @@ for (let i = 0; i < 3; i++) {
 }
 
 
-// // skillTitleDiv Layout
-// authorTitlesDiv
+// skillTitleDiv Layout
+const titles = asabenehChallenges2026.author.titles
+const skills = asabenehChallenges2026.author.skills
+const qualifications = asabenehChallenges2026.author.qualifications
+
+let authorTh2 = document.createElement('h2')
+authorTitlesDiv.appendChild(authorTh2)
+authorTh2.textContent = 'Titles'
+skillTitleDiv.appendChild(authorTitlesDiv)
+skillTitleDiv.style.display = 'flex'
+skillTitleDiv.style.justifyContent = 'space-between'
+skillTitleDiv.style.alignItems = 'start'
+skillTitleDiv.style.width = '95%'
+skillTitleDiv.style.maxWidth = '1020px'
+skillTitleDiv.style.gap = '16px'
+skillTitleDiv.style.marginTop = '16px'
+
+
+
+
+for (let i = 0; i < titles.length; i++) {
+    let title = document.createElement('li')
+    title.innerHTML = `<span>${titles[i][0]}</span> ${titles[i][1]}`
+    title.style.marginBottom = '6px'
+    title.style.listStyle = 'none'
+    authorTitlesDiv.appendChild(title)
+}
+
+const skillTh2 = document.createElement('h2')
+skillTh2.textContent = 'Skills'
+authorSkillsDiv.appendChild(skillTh2)
+authorSkillsDiv.appendChild(skillTh2)
+skillTitleDiv.appendChild(authorSkillsDiv)
+for (let i = 0; i < skills.length; i++) {
+    let skill = document.createElement('li')
+    skill.innerHTML = ` ✅ ${skills[i]}`
+    skill.style.listStyle = 'none'
+    skill.style.marginBottom = '6px'
+    authorSkillsDiv.appendChild(skill)
+    console.log(skill)
+}
+
+const qualTh2 = document.createElement('h2')
+qualTh2.textContent = 'Qualifications'
+authorQualDiv.appendChild(qualTh2)
+authorQualDiv.appendChild(qualTh2)
+skillTitleDiv.appendChild(authorQualDiv)
+for (let i = 0; i < qualifications.length; i++) {
+    let qual = document.createElement('li')
+    qual.style.marginBottom = '6px'
+    if (i === 0) {
+        qual.innerHTML = `📖 ${qualifications[i]}`
+    } else {
+        qual.innerHTML = `🎓 ${qualifications[i]}`
+    }
+    
+    qual.style.listStyle = 'none'
+    authorQualDiv.appendChild(qual)
+    console.log(qual)
+}
+
+
+
 
 document.body.appendChild(headingOne)
 document.body.appendChild(subtitle)

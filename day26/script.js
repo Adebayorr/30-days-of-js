@@ -29,42 +29,40 @@ function filterBy (criteria = '', isAscending = true) {
         .every(char => country.toLowerCase().includes(char))).reverse()
     }
 
+    return filteredCountries
+    // console.log(filteredCountries)
+    // filteredCountries.map( c => {
+    //     const div = document.createElement('div')
+    //     div.classList.add('country')
+    //     div.textContent = c
+    //     countriesParent.appendChild(div)
+    // })
+}
 
-    console.log(filteredCountries)
-    filteredCountries.map( c => {
+function generateCountries (criteria, isAscending) {
+
+    const country = filterBy(criteria, isAscending)
+
+    country.forEach(c => {
         const div = document.createElement('div')
         div.classList.add('country')
         div.textContent = c
-        countriesParent.appendChild(div)
+        document.querySelector('.countries-container').appendChild(div)
     })
 }
 
-filterBy()
-
-
-// function generateCountries (criteria, isAscending) {
-
-//     const country = filterBy(criteria, isAscending)
-
-//     country.forEach(c => {
-//         const div = document.createElement('div')
-//         div.classList.add('country')
-//         div.textContent = c
-//         document.querySelector('.countries-container').appendChild(div)
-//     })
-// }
+generateCountries()
 
 userInput.addEventListener('keyup', () => {
     console.log('key up')
-    filterBy(userInput.value)
-    // console.log(filterBy(userInput.value))
+    generateCountries(userInput.value)
 })
 
 exactMatchToggle.addEventListener('click', () => {
     console.log('clicked')
     isExactMatch = !isExactMatch
     if (isExactMatch) {
-        filterBy(userInput.value)
+        generateCountries(userInput.value)
         exactMatchToggle.classList.add('ON')
         partialMatchToggle.classList.remove('ON')
     }
@@ -74,7 +72,7 @@ partialMatchToggle.addEventListener('click', () => {
     console.log('clicked')
     isExactMatch = !isExactMatch
     if (!isExactMatch) {
-        filterBy(userInput.value)
+        generateCountries(userInput.value)
         partialMatchToggle.classList.add('ON')
         exactMatchToggle.classList.remove('ON')
 
@@ -83,7 +81,7 @@ partialMatchToggle.addEventListener('click', () => {
 
 sortToggle.addEventListener('click', () => {
 
-    filterBy(userInput.value , isAscending)
+    generateCountries(userInput.value , isAscending)
     isAscending = !isAscending
 })
 

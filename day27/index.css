@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 
+        'Lucida Grande', 'Lucida Sans Unicode',
+        Geneva, Verdana, sans-serif;
+    font-size: 15px;
+
+}
+
+body {
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    max-width: 1400px;
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: 50%;
+    /* margin-top: 60px; */
+}
+
+.titles {
+    margin-top: 32px;
+    background-color: #c5840c48;
+    padding: 40px;
+}
+
+.about-me {
+    margin-top: 20px;
+    line-height: 200%;
+}
+
+.challenges {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 32px 0;
+}
+
+.challenges > div {
+    padding: 24px;
+    height: 200px;
+    min-width: 200px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    background-color: #bdbdbd10;
+    border: 2px solid #bdbdbd2c;
+}
+
+
+.challenges > div:hover {
+    background-color: #ff646432;
+}
+
+.techs {
+    overflow: hidden;
+    height: 2.1rem;
+}
+.tech {
+    font-size: 2rem;
+    font-weight: bold;
+    transition: 0.5s ease-out;
+    opacity: 0.5s;
+}
+
+.slide-out {
+    transform: translateX(100%);
+    /* transition: 0.5s ease-out; */
+    opacity: 0;
+}
+
+.slide-in {
+    transform: translateX(0);
+    /* transition: 0.5s ease-out; */
+    opacity: 1;
+}
+

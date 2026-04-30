@@ -126,7 +126,33 @@
     </style>
 </head>
 <body>
-    <script type="module" src="/day6/script.js"></script>
+    <h1>Calculate the weight of an object on a planet</h1>
+    <form action="">
+        <input placeholder="Mass in KG" class="mass-input" type="text">
+    <select placeholder="Select">
+        <option value="mercury">mercury</option>
+        <option value="venus">venus</option>
+        <option value="earth">earth</option>
+        <option value="mars">mars</option>
+        <option value="jupiter">jupiter</option>
+        <option value="saturn">saturn</option>
+        <option value="uranus">uranus</option>
+        <option value="neptune">neptune</option>
+        <option value="pluto">pluto</option>
+    </select>
+    <button>Calculate Weight</button>
+    </form>
+    <div class="output-wrapper">
+        <div class="img-wrapper">
+            <img src="" alt="">
+        </div>
+        <div class="weight-output hidden">
+            <h3 class="weight-statement hidden">The weight of the object in <span id="planet"></span></h3>
+            <p class="result"></p>
+        </div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
     <!-- <script src="/others/countries_data.js"></script> -->
 </body>
 </html>

@@ -19,7 +19,7 @@ import countries from "../others/countries.js"
 ++Prime numbers background is purple
 */
 
-function isPrime (num) {
+export default function isPrime (num) {
     if (num < 2) return false
     if (num === 2) return true
     let is_prime = true

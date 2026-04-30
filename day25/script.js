@@ -4,35 +4,84 @@ const buttonLanguages = document.querySelector('.lang-filter-btn')
 const filterDescElem = document.querySelector('.filter-desc')
 const visualizerParentElem = document.querySelector('.data-visual-div')
 
-
+document.querySelector('.countries-count').textContent = countries_data.length
 
 document.title = 'Day 25: Visuali..'
 
 function filterCountriesByPop () {
 
-    let mostPopulous = countries_data.sort((a, b) => b.population - a.population).slice(0, 10)
+    let mostPopulous = [...countries_data].sort((a, b) => b.population - a.population).slice(0, 10)
     let worldPopulation = countries_data.reduce((acc, curr) => acc += curr.population, 0)
-    console.log(mostPopulous, worldPopulation)
+
+    const {langOrPop, detail, barGraph} = generateElements()
+
+    langOrPop.textContent = 'World'
+    detail.textContent = worldPopulation
+    barGraph.style.width = '100%'
+    console.log(barGraph)
+
+    mostPopulous.forEach(mp => {
+        
+        const {langOrPop, detail, barGraph} = generateElements()
+
+        langOrPop.textContent = mp.name
+        detail.textContent = mp.population
+        barGraph.style.width = `${(mp.population / worldPopulation) * 100}%`
+        filterDescElem.textContent = 'Populous Countries'
+
+    })
+    return {mostPopulous, worldPopulation}
 }
 
 filterCountriesByPop()
 
-const visualizerDiv = document.createElement('div')
-const langOrPop = document.createElement('p')
-const barWrapper = document.createElement('div')
-const detail = document.createElement('p')
-const barGraph = document.createElement('span')
+function generateElements () {
+    const visualizerDiv = document.createElement('div')
+    const langOrPop = document.createElement('p')
+    const barWrapper = document.createElement('div')
+    const detail = document.createElement('p')
+    const barGraph = document.createElement('span')
 
-visualizerDiv.setAttribute('class', 'visualizer')
-langOrPop.setAttribute('class', 'filter')
-barWrapper.setAttribute('class', 'bar-wrapper')
-detail.setAttribute('class', 'detail')
-barGraph.setAttribute('class', 'bar')
+    visualizerParentElem.appendChild(visualizerDiv)
+    visualizerDiv.appendChild(langOrPop)
+    visualizerDiv.appendChild(barWrapper)
+    visualizerDiv.appendChild(detail)
+    barWrapper.appendChild(barGraph)
+
+    visualizerDiv.setAttribute('class', 'visualizer')
+    langOrPop.setAttribute('class', 'filter')
+    barWrapper.setAttribute('class', 'bar-wrapper')
+    detail.setAttribute('class', 'detail')
+    barGraph.setAttribute('class', 'bar')
+
+    return {langOrPop, detail, barGraph}
+}
+
+buttonPopulation.addEventListener('click', (e) => {
+    visualizerParentElem.textContent = ''
+    
+    const {mostPopulous, worldPopulation} =  filterCountriesByPop()
+
+    mostPopulous.forEach(mp => {
+        
+        const {langOrPop, detail, barGraph} = generateElements()
+
+        langOrPop.textContent = mp.name
+        detail.textContent = mp.population
+        barGraph.style.width = `${(mp.population / worldPopulation) * 100}%`
+        filterDescElem.textContent = 'Populous Countries'
+
+    })
+    console.log(mostPopulous, worldPopulation)
+
+
+
+})
+
 
 
 document.body.appendChild
 
-console.log(barWrapper)
 function filterCountriesByLang () {
 
 // USING MAP METHOD
@@ -65,11 +114,22 @@ function filterCountriesByLang () {
 })})
 
     let mostSpoken = Object.entries(languages).sort((a, b) => b[1] - a[1]).slice(0, 10)
-    mostSpoken.forEach( lang => {
-        
+    return mostSpoken
+}
 
+buttonLanguages.addEventListener('click', () => {
+    visualizerParentElem.textContent = ''
+
+    const mostSpoken = filterCountriesByLang()
+    mostSpoken.forEach( lang => {
+        const {langOrPop, detail, barGraph} = generateElements()
+
+        langOrPop.textContent = lang[0]
+        detail.textContent = lang[1]
+        barGraph.style.width = `${lang[1]}%`
+        filterDescElem.textContent = 'Spoken Languages'
         console.log(lang[0], lang[1])
     })
-}
+})
 
 console.log(filterCountriesByLang())

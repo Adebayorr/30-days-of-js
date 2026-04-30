@@ -47,11 +47,11 @@ const asabenehChallenges2026 = {
       ['🌱', 'Educator'],
       ['💻', 'Programmer'],
       ['🌐', 'Developer'],
-      ['🔥', 'UX Engineer'],
+      ['🎨', 'UX Engineer'],
       ['📔', 'Copywriter']
     ],
     qualifications: [
-        'Diploma WEB3 Front-end Developer (In-view)',
+        'Diploma Solidity Developer (In-view)',
         'MSc. Phonetics (In-view)',
         'BSc. English Language',
         'Diploma Software Engineer',

@@ -121,14 +121,23 @@ for (let i = 0; i < challengesArr.length; i++) {
     let status = document.createElement('p')
     let summary = document.createElement('summary')
 
+    detailTitle.textContent = challengesArr[i].name
+    detailTitle.style.fontWeight = 'normal'
+    detailTitle.style.color = '#0e0e0e'
+    detailTitle.style.textDecoration = 'none'
+
     if (i === 0) {
         status.textContent = 'Done'
         detailWrapper.style.backgroundColor = 'green'
+            detailTitle.style.textDecoration = 'underline'
+            detailTitle.style.color = 'blue'
     }
 
     if (i === 1) {
         status.textContent = 'Ongoing'
         detailWrapper.style.backgroundColor = 'yellow'
+        detailTitle.style.textDecoration = 'underline'
+        detailTitle.style.color = 'blue'
 
     }
     
@@ -139,10 +148,6 @@ for (let i = 0; i < challengesArr.length; i++) {
     }
 
     summary.textContent = challengesArr[i].topics[0]
-    detailTitle.textContent = challengesArr[i].name
-    detailTitle.style.fontWeight = 'normal'
-    detailTitle.style.color = 'blue'
-    detailTitle.style.textDecoration = 'underline'
 
 
     detailElement.appendChild(summary)

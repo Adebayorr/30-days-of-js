@@ -4,23 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="style.css"></link>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="input-container">
-        <h1 class="title">World Countries List</h1>
-        <strong>Total Numbers of Countries <span id="countries-count"></span></strong>
-        <p class="comment">Countries that starts with <span id="filter-param"></span> are <span id="filtered-count"></span></p>
-        <div class="button-wrappers">
-            <button class="">Starting Word</button>
-            <button class="">Search With Any Word</button>
-            <button class="">Ascending</button>
-        </div>
-        <div class="search-bar_wrapper">
-            <input type="search">
-            <button class="search-btn">Search</button>
+    <div class="hero-container">
+        <div class="overlay"></div>
+        <div class="input-container">
+            <h1 class="title">World Countries List</h1>
+            <strong>Total Numbers of Countries <span id="countries-count"></span></strong>
+            <p class="comment">Countries that starts with <span id="filter-param"></span> are <span id="filtered-count"></span></p>
+            <div class="button-wrapper">
+                <button class="filter-btn exact-match-btn">Starting Word</button>
+                <button class="filter-btn partial-match-btn">Search With Any Word</button>
+                <button class="filter-btn sort-btn">
+                    <img src="images/sort-vertical-svgrepo-com.svg" alt="ascending order button" class="sort-icon">
+                </button>
+            </div>
+            <div class="search-bar_wrapper">
+                <input type="search" placeholder="Search for country">
+                <button class="search-btn">
+                    <img src="images/search-alt-svgrepo-com.svg" alt="search icon" class="search-icon">
+                </button>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <div class="countries-container">
+        <!-- <div class="country"><span class="country-name">Algeria</span ></div>
+        <div class="country">Algeria</div>
+        <div class="country">Algeria</div>
+        <div class="country">Algeria</div>
+        <div class="country">Algeria</div>
+        <div class="country">Algeria</div>
+        <div class="country">Algeria</div>
+        <div class="country">Algeria</div>
+        <div class="country">Algeria</div>
+        <div class="country">Algeria</div> -->
+    </div>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

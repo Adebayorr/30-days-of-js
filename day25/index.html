@@ -28,10 +28,11 @@
 
         .title-wrapper {
             display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 16px;
+            gap: 4px;
         }
 
         .title {
@@ -39,6 +40,14 @@
         }
         .subtitle {
             color: #0e0e0e;
+        }
+
+
+        .filter-btn-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         button {
@@ -62,20 +71,25 @@
         @media screen and (min-width: 600px) {
             .data-visual-div {
             display: flex;
+            flex-direction: column;
+            gap: 16px;
             width: 100%;
             max-width: 800px;
         }
 
-        .visual-one {
+        .visualizer {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+
         .filter, .detail {
             width: 15%;
         }
+
+
 
         .detail {
             text-align: start;
@@ -102,19 +116,14 @@
         <h1 class="title">World Countries Data</h1>
         <p class="subtitle">Currently, we have <span class="countries-count"></span> countries</p>
     </div>
-    <div class="fiter-btn-wrapper">
-        <button class="pop-filter-btn">Population</button>
-        <button class="lang-filter-btn">Languages</button>
-        <p class="text">10 Most<span class="filter-desc"></span> in the world</p>
+    <div class="filter-btn-wrapper">
+        <div>
+            <button class="pop-filter-btn">Population</button>
+            <button class="lang-filter-btn">Languages</button>
+        </div>
+        <p class="text">10 Most <span class="filter-desc"></span> in the world</p>
     </div>
     <div class="data-visual-div">
-        <div class="visual-one">
-            <p class="filter">English</p>
-            <div class="bar-wrapper">
-                <span class="bar"></span>
-            </div>
-            <p class="detail">92</p>
-        </div>
     </div>
     <script type="module" src="script.js"></script>
 </body>

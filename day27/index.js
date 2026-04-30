@@ -1,7 +1,7 @@
 const author = {
     name: 'Asabeneh Yetayeh',
-    titles : ['Programmer', 'Educator', 'Motivator', 'Content Creator', 
-        'Motivational Speaker', 'Instructor'
+    titles : [ ['💻', 'Programmer'], ['📙', 'Educator'], ['🔥', 'Motivator'], ['📦', 'Content Creator'], 
+        ['🔥', 'Motivational Speaker'], ['📖', 'Instructor']
     ],
     description: `I am Asabeneh Yetayeh. I am instructor, developer, 
         motivator and content creator. I love educating people and creating educational
@@ -51,14 +51,9 @@ function updateTech () {
 }
 
 function updateTitles () {
-    setInterval(() =>{
-        
-        titlesContainer.classList.add('slide-out')
-        titlesContainer.textContent = author.titles[currentTitle]
+        titlesContainer.textContent = author.titles[currentTitle][0] + ' ' + author.titles[currentTitle][1]
         currentTitle = (currentTitle + 1) % author.titles.length
-        titlesContainer.classList.add('slide-in')
-
-    }, 500)
+        // titlesContainer.classList.remove('slide-out')
     
 }
 
@@ -67,6 +62,7 @@ updateTech()
 
 
 setInterval(() => {
+    titlesContainer.classList.add('slide-out')
     updateTitles()
 }, 2000)
 

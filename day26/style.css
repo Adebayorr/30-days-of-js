@@ -132,9 +132,10 @@ input::placeholder {
     background-image: url(images/world.avif);
     background-size: 150%;
     background-position: 50% 40%;
-    color: #fefefe;
+    color: #0e0e0e;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bold;
+    text-align: center;
 }
 
 /* .country-name {

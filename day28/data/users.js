@@ -1,4 +1,4 @@
-const users = [
+let users = [
     {
         id: '32oej',
         name: 'Martha Yohannes',
@@ -29,4 +29,13 @@ const users = [
     }
 ]
 
-export default users
+function deleteUser (id) {
+    users = users.filter(user => user.id != id).sort((a, b) => b.id - a.id)
+    console.log(id)
+    return users
+} 
+
+// export function createUserObject () {
+    
+// }
+

@@ -2,6 +2,7 @@
 // import { deleteUser } from "./data/users.js"
 // import createUserElement from "./utilities/createUserElement.js"
 // import { leaderboardWrapper } from "./utilities/createUserElement.js"
+import countries from "./data/countries.js"
 
 
 /* 
@@ -13,6 +14,7 @@ const lastNameInput = document.querySelector('#last-name')
 const countryInput = document.querySelector('#country')
 const scoreInput = document.querySelector('#score')
 const submitButton = document.querySelector('.submit-btn')
+const errorMessage = document.querySelector('.error-message')
 
 /*
     OUTPUT ELEMENTS
@@ -35,7 +37,7 @@ let users = [
         score: 75
     },
     {
-        id: 'asne09',
+        id: 'asne9',
         name: 'Gigi Polanski',
         country: 'Russia',
         dateCreated: 'MAY 23, 2020',
@@ -153,9 +155,7 @@ const createUserElement = ({id, name, country, dateCreated, score}) => {
         deleteUser(id)
     })
 
-    addButton.addEventListener('click', () => {
-        addToScore(id)
-    })
+    addButton.addEventListener('click', () => addToScore(id))
 
     minusButton.addEventListener('click', () => subtractFromScore(id))
 
@@ -180,37 +180,79 @@ const addButtons = document.querySelectorAll('.add')
 const minusButtons = document.querySelectorAll('.minus')
 
 
-// deleteButtons.forEach(button => {
-//     button.addEventListener('click', () => {
-    
-//         const id = button.parentElement.parentElement.getAttribute('data-id')
-//         deleteUser(id)
-//         console.log(deleteButtons)
-//     })
 
-// })
+
+function generateID () {
+    const chars = '0ab1cd2ef3gh4ij5kl6mn7op8qr9stuvwxyz'
+    let id = ''
+    for (let i = 0; i < 5; i++) {
+        id += chars[Math.floor(Math.random() * 36)]
+    }
+    return id
+}
+
+
+function formatDate () {
+    const date = new Date()
+    const formattedDate = new Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        day: '2-digit',
+        year: 'numeric'
+    })
+
+    return formattedDate.format(date)
+}
+console.log(formatDate())
+console.log(generateID())
 
 
 formElement.addEventListener('submit', (e) => e.preventDefault())
 
-// submitButton.addEventListener('click', () => {
-//     console.log('clicked')
-//     console.log(lastNameInput.value)
-//     if (lastNameInput.value === '' || lastNameInput.value.length === 1  ) {
-//         console.log('lastname too short or empty')
-//         return
-//     }
-
-//     if (firstNameInput.value === '' || firstNameInput.value.length === 1  ) {
-//         console.log('Firstname too short or empty')
-//         return
-//     }
-
-//     if (countryInput.value.toLowerCase() = )
-
-// })
+submitButton.addEventListener('click', () => createUserObject())
 
 
-// function createUserObject ()  {
+function createUserObject ()  {
+    if (firstNameInput.value === '' || firstNameInput.value.length === 1  ) {
+        errorMessage.textContent = 'First Name too short or empty'
+        errorMessage.classList.remove('no-error')
+        return
+    }
 
-// }
+    if (lastNameInput.value === '' || lastNameInput.value.length === 1  ) {
+        errorMessage.textContent = 'Last name too short or empty'
+        errorMessage.classList.remove('no-error')
+        return
+    }
+
+    if (!countries.includes(countryInput.value.toLowerCase()
+        .charAt(0)
+        .toUpperCase() +  countryInput.value.slice(1))) {
+          errorMessage.textContent = "Country is empty or does not exist"
+            errorMessage.classList.remove('no-error')
+            return
+    }
+
+    if (scoreInput.value === '') {
+        errorMessage.textContent = 'Score cannot be empty'
+        errorMessage.classList.remove('no-error')
+        return
+    }
+
+    errorMessage.textContent = ''
+    errorMessage.classList.add('no-error')
+   users.push({
+    id: generateID(),
+    name: firstNameInput.value + ' ' + lastNameInput.value,
+    country: countryInput.value.charAt(0).toUpperCase() + countryInput.value.slice(1),
+    dateCreated: formatDate(),
+    score: Number(scoreInput.value)
+   })
+   console.log(users)
+   leaderboardWrapper.textContent = ''
+
+   lastNameInput.value = ''
+   firstNameInput.value = ''
+   countryInput.value = ''
+   scoreInput.value = ''
+   users.sort((a, b) => b.score - a.score).forEach(user => createUserElement(user))
+}

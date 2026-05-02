@@ -18,7 +18,7 @@ main {
     margin: 60px auto;
 }
 
-form {
+.inputs {
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -32,6 +32,7 @@ input {
     outline: none;
     color: #0e0e0e;
     font-family: inherit;
+    font-weight: 800;
     width: 20%;
 }
 
@@ -46,7 +47,6 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-
 button {
     display: flex;
     justify-content: center;
@@ -57,6 +57,17 @@ button {
     width: 18%;
 }
 
+.error-message {
+    padding: 20px;
+    text-align: center;
+    color: rgb(131, 28, 28);
+    font-size: 0.9rem;
+    margin: auto;
+}
+
+.no-error {
+    display: none;
+}
 .leaderboard-wrapper {
     margin-top: 32px;
     display: flex;

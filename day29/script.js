@@ -1,4 +1,5 @@
 const text = '30 days of javascript challenge 2026 Asabeneh Yetayeh'
+const container = document.querySelector('.container')
 
 function generateHexColor() {
     const hexChars = '0123456789abcdef'
@@ -12,7 +13,6 @@ function generateHexColor() {
     return hexCode
 }
 
-console.log(generateHexColor())
 
 
 
@@ -24,26 +24,37 @@ const fonts = ['Arial', 'Helvetica', 'Trebuchet MS', 'Verdana',
 let count = 0 
 
 function generateTexts () {
-    const font = fonts[count]
-    count = (count + 1) % fonts.length
-    console.log(font)
-    document.body.textContent = ''
-    document.body.style.backgroundColor = generateHexColor()
-    for (const t in text) {
+
+    container.textContent = ''
+    for (const t of text) {
 
         const char = document.createElement('span')
-        char.textContent = text[t]
+        char.textContent = t
         char.classList.add('text')
-        char.classList.add('animate')
         char.style.color = generateHexColor()
-        char.style.fontFamily = font
-        document.body.appendChild(char)
+        container.appendChild(char)
 
     }
+    
 }
 
 generateTexts()
+const spans = document.querySelectorAll('span')
+console.log(spans)
+
+function changeColorAndFont () {
+    const font = fonts[count]
+    count = (count + 1) % fonts.length
+    container.style.backgroundColor = generateHexColor()
+    container.style.color = generateHexColor()
+    const spans = document.querySelectorAll('span')
+    spans.forEach(span => {
+        span.style.color = generateHexColor()
+        span.style.fontFamily = font
+    });
+}
+generateTexts()
 
 setInterval(() => {
-    generateTexts()
+    changeColorAndFont()
 }, 4000)

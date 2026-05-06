@@ -8,39 +8,44 @@
 </head>
 <body>
     <section>
-        <form action="">
+        <form action="" method="GET">
             <h1 class="title">Validating Web Forms</h1>
             <div class="input-wrapper">
                 <label for="first-name">First Name</label>
                 <input type="text" id="first-name">
-                <span class="input-feedback">First name must be alpha-numeric and contain 3 - 16 characters</span>
+                <span class="input-feedback hide-warning">First name must be alphabets and contain 3 - 16 characters</span>
             </div>
             <div class="input-wrapper">
                 <label for="last-name">Last Name</label>
                 <input type="text" id="last-name">
-                <span class="input-feedback">First name must be alpha-numeric and contain 3 - 16 characters</span>
+                <span class="input-feedback hide-warning">First name must be alphabets and contain 3 - 16 characters</span>
             </div>
             <div class="input-wrapper">
                 <label for="email">Email</label>
                 <input type="text" id="email">
-                <span class="input-feedback">Email must be a valid address, e.g. example@example.com</span>
+                <span class="input-feedback hide-warning">Email must be a valid address, e.g. example@example.com</span>
             </div>
             <div class="input-wrapper">
                 <label for="password">Password</label>
                 <input type="password" id="password">
-                <span class="input-feedback">Password must be alphanumeric (@, _ and - are also allowed) and between 6 - 20 characters</span>
+                <span class="input-feedback hide-warning">Password must be alphanumeric (@, _ and - are also allowed) and between 6 - 20 characters</span>
             </div>
             <div class="input-wrapper">
-                <label for="first-name">Telephone</label>
-                <input type="number" id="first-name">
-                <span class="input-feedback">A valid Telephone number (11 digits and 333-333-3334)</span>
+                <label for="telephone">Telephone</label>
+                <input type="number" id="telephone">
+                <span class="input-feedback hide-warning">A valid Telephone number (10 - 11 digits and 333-333-3334)</span>
             </div>
             <div class="input-wrapper">
                 <label for="bio">Your Bio</label>
                 <input type="text" id="bio">
-                <span class="input-feedback">Bio must contain only lowercase letters, underscores, hyphens and be 8 - 50 characters</span>
+                <span class="input-feedback hide-warning">Bio must contain only lowercase letters, underscores, hyphens and be 8 - 50 characters</span>
             </div>
-            <button type="submit">Submit</button>
+            <div class="btn-wrapper">
+                <button type="submit" id="submit">Submit</button>
+                <span class="form-error hide-warning">Fill the input fields correctly</span>
+                <!-- <input type="submit" placeholder="submit" id="submit"> -->
+            </div>
+            
         </form>
     </section>
     <script src="../scripts/form.js"></script>

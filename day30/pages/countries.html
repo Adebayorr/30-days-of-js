@@ -7,7 +7,28 @@
     <link rel="stylesheet" href="../stylesheet/countries.css">
 </head>
 <body>
-    
-    <script src="../scripts/countries.js"></script>
+    <header>
+        <h1 class="title">World Countries Data</h1>
+        <p class="subtitle">Currently, We have <span class="countries-count"></span> countries</p>
+        <spa class="result-comment"></spa>
+    </header>
+    <section class="countries-container">
+        <form class="input-container">
+            <input type="text" placeholder="Search countries by name, city and language">
+            <div class="buttons-wrapper">
+                <button class="input-btn by-name">Name</button>
+                <button class="input-btn by-capital">Capital</button>
+                <button class="input-btn by-population">Population</button>
+                <a href="#visualizer" class=""></a>
+            </div>
+        </form>
+        <div class="countries">
+
+        </div>
+    </section>
+    <section id="visualiser">
+        
+    </section>
+    <script type="module" src="../scripts/countries.js"></script>
 </body>
 </html>

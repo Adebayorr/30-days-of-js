@@ -16,34 +16,59 @@ const SubmitButton = document.getElementById('submit')
 
 firstNameElem.addEventListener('keyup', (e) => {
     const span = document.querySelector('#first-name + span') 
-    console.log(firstNameElem.value.match(nameRegEx), span)
-    firstNameElem.value.match(nameRegEx) ? span.classList.add('hide-warning') : span.classList.remove('hide-warning')
+    if (firstNameElem.value.match(nameRegEx)) { 
+        span.classList.add('hide-warning')
+        firstNameElem.classList.add('correct')
+    }  else {
+        span.classList.remove('hide-warning')
+        firstNameElem.classList.remove('correct')
+    }
 })
 
 lastNameElem.addEventListener('keyup', (e) => {
-    const span = document.querySelector('#last-name + span') 
-    console.log(lastNameElem.value.match(nameRegEx), span)
-    lastNameElem.value.match(nameRegEx) ? span.classList.add('hide-warning') : span.classList.remove('hide-warning')
+    const span = document.querySelector('#last-name + span')
+    if (lastNameElem.value.match(nameRegEx)) {
+        span.classList.add('hide-warning')
+        lastNameElem.classList.add('correct')
+    } else {
+        span.classList.remove('hide-warning')
+        lastNameElem.classList.remove('correct')
+    }
 })
 
 emailElem.addEventListener('keyup', (e) => {
-    const span = document.querySelector('#email + span') 
-    console.log(emailElem.value.match(emailRegEx), span)
-    emailElem.value.match(emailRegEx) ? span.classList.add('hide-warning') : span.classList.remove('hide-warning')
+    const span = document.querySelector('#email + span')
+    if (emailElem.value.match(emailRegEx)) {
+        span.classList.add('hide-warning')
+        emailElem.classList.add('correct')
+    } else {
+        span.classList.remove('hide-warning')
+        emailElem.classList.remove('correct')
+    }
 })
 
 passwordElem.addEventListener('keyup', (e) => {
     const span = document.querySelector('#password + span') 
-    console.log(passwordElem.value.match(passwordRegEx), span)
-    passwordElem.value.match(passwordRegEx) ? span.classList.add('hide-warning') : span.classList.remove('hide-warning')
+    if (passwordElem.value.match(passwordRegEx)) {
+        span.classList.add('hide-warning') 
+        passwordElem.classList.add('correct')
+    } else  {
+        span.classList.remove('hide-warning')
+        passwordElem.classList.remove('correct')
+    }
 })
 
 phoneElem.addEventListener('keyup', (e) => {
     const span = document.querySelector('#telephone + span') 
-    console.log(phoneElem.value.match(phoneRegEx), span)
-    phoneElem.value.match(phoneRegEx) ? span.classList.add('hide-warning') : span.classList.remove('hide-warning')
+    
+    if (phoneElem.value.match(phoneRegEx)) {
+        span.classList.add('hide-warning')
+        phoneElem.classList.add('correct')
+    } else {
+        span.classList.remove('hide-warning')
+        phoneElem.classList.remove('correct')
+    }
 })
-
 
 formElem.addEventListener('submit', (e) => {
     if (
@@ -54,6 +79,7 @@ formElem.addEventListener('submit', (e) => {
         !lastNameElem.value.match(nameRegEx)
         ) {
         e.preventDefault()
+        document.querySelector('.form-error').classList.remove('hide-warning')
     }
     
     console.log('clicked');

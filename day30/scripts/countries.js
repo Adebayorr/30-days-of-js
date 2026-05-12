@@ -14,7 +14,7 @@ const countriesDivContainer = document.querySelector('.countries')
 
 inputContainer.addEventListener('submit', (e) => e.preventDefault())
 
-let ascendingByName = false
+let ascendingByName = true
 let ascendingByCapital = false
 
 let filterBy = 'name'
@@ -98,6 +98,8 @@ function generateCountries (countries) {
         countryName.textContent = country.name
         countryCapital.textContent = country.capital
         countryLanguages.textContent = listLanguages(country.languages)
+        countryPopulation.textContent = `Population: ${country.population.toLocaleString()}`
+        
         
 
         countriesDivContainer.appendChild(countryWrapper)
